@@ -1,7 +1,21 @@
 <view class="page pantry-page">
-  <view class="empty-card card">
+  <view wx:if="{{!hasMyFoods}}" class="empty-card card">
     <view class="empty-title">还没有添加食材</view>
     <view class="muted-text">后续可以在这里查看家里的蔬果保存记录。</view>
     <view class="placeholder-button">以后可添加我的食材</view>
+  </view>
+
+  <view wx:if="{{hasMyFoods}}" class="pantry-content">
+    <view class="section-title">我的食材</view>
+    <view class="pantry-list">
+      <view wx:for="{{myFoods}}" wx:key="recordId" class="pantry-card card">
+        <view class="pantry-main" data-id="{{item.foodId}}" bindtap="goToDetail">
+          <view class="pantry-name">{{item.name}}</view>
+          <view class="added-date">添加日期：{{item.addedAt}}</view>
+          <view class="pantry-summary">{{item.summary}}</view>
+        </view>
+        <button class="delete-button" data-record-id="{{item.recordId}}" catchtap="deleteRecord">删除</button>
+      </view>
+    </view>
   </view>
 </view>

@@ -18,10 +18,19 @@ Page({
     results: [],
     hasSearched: false,
     mode: "search",
-    activeTag: ""
+    activeTag: "",
+    autoFocus: false
   },
 
   onLoad(options) {
+    if (options.focus === "1") {
+      setTimeout(() => {
+        this.setData({
+          autoFocus: true
+        })
+      }, 120)
+    }
+
     let tag = ""
 
     try {

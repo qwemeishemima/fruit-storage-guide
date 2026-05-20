@@ -26,4 +26,8 @@
       <view wx:for="{{food.tips}}" wx:key="*this" class="tip-item">{{item}}</view>
     </view>
   </block>
+
+  <view wx:if="{{food}}" class="floating-add-btn {{isInPantry ? 'added' : ''}}" bindtap="handlePantryAction">
+    <text class="floating-add-icon">{{isInPantry ? '✓' : '+'}}</text>
+  </view>
 </view>

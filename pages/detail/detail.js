@@ -1,10 +1,12 @@
 const { getFoodById, getCategoryById } = require("../../utils/food")
+const { addMyFood, hasMyFood } = require("../../utils/pantry")
 
 Page({
   data: {
     food: null,
     categoryName: "",
-    infoItems: []
+    infoItems: [],
+    isInPantry: false
   },
 
   onLoad(options) {
@@ -14,7 +16,8 @@ Page({
       this.setData({
         food: null,
         categoryName: "",
-        infoItems: []
+        infoItems: [],
+        isInPantry: false
       })
       return
     }
@@ -58,7 +61,52 @@ Page({
     this.setData({
       food,
       categoryName: category ? category.name : "未分类",
-      infoItems
+      infoItems,
+      isInPantry: hasMyFood(food.id)
+    })
+  },
+
+  handlePantryAction() {
+    if (this.data.isInPantry) {
+      wx.switchTab({
+        url: "/pages/pantry/pantry"
+      })
+      return
+    }
+
+    this.addToPantry()
+  },
+
+  addToPantry() {
+    if (!this.data.food) {
+      return
+    }
+
+    const result = addMyFood(this.data.food)
+
+    if (!result.added && result.reason === "exists") {
+      wx.showToast({
+        title: "已经在我的食材中",
+        icon: "none"
+      })
+      return
+    }
+
+    if (!result.added) {
+      wx.showToast({
+        title: "添加失败",
+        icon: "none"
+      })
+      return
+    }
+
+    this.setData({
+      isInPantry: true
+    })
+
+    wx.showToast({
+      title: "已加入我的食材",
+      icon: "success"
     })
   }
 })

@@ -8,6 +8,7 @@
       value="{{keyword}}"
       placeholder="输入蔬菜或水果名称"
       confirm-type="search"
+      focus="{{autoFocus}}"
       bindinput="onKeywordInput"
       bindconfirm="onSearch"
     />

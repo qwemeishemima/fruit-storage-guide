@@ -1,7 +1,5 @@
 .pantry-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 32rpx;
 }
 
 .empty-card {
@@ -25,4 +23,57 @@
   background: #eaf5e9;
   color: #315d3c;
   font-size: 28rpx;
+}
+
+.pantry-content {
+  width: 100%;
+}
+
+.pantry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.pantry-card {
+  padding: 28rpx 30rpx;
+}
+
+.pantry-main:active {
+  opacity: 0.72;
+}
+
+.pantry-name {
+  color: #243126;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.added-date {
+  margin-top: 10rpx;
+  color: #7f8a7b;
+  font-size: 24rpx;
+}
+
+.pantry-summary {
+  margin-top: 14rpx;
+  color: #59685b;
+  font-size: 27rpx;
+  line-height: 1.6;
+}
+
+.delete-button {
+  margin: 22rpx 0 0;
+  padding: 0;
+  width: 132rpx;
+  height: 58rpx;
+  border-radius: 999rpx;
+  background: #f1f2eb;
+  color: #7f8a7b;
+  font-size: 25rpx;
+  line-height: 58rpx;
+}
+
+.delete-button::after {
+  border: none;
 }

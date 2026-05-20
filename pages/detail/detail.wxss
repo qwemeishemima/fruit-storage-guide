@@ -1,5 +1,6 @@
 .detail-page {
   padding-top: 32rpx;
+  padding-bottom: 132rpx;
 }
 
 .empty-card {
@@ -96,4 +97,40 @@
   border-radius: 50%;
   background: #72a66f;
   content: "";
+}
+
+.floating-add-btn {
+  position: fixed;
+  right: 32rpx;
+  bottom: calc(48rpx + env(safe-area-inset-bottom));
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: #3f8f5a;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.16);
+}
+
+.floating-add-btn.added {
+  background: #eaf5e9;
+}
+
+.floating-add-btn:active {
+  opacity: 0.82;
+}
+
+.floating-add-icon {
+  color: #ffffff;
+  font-size: 52rpx;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.floating-add-btn.added .floating-add-icon {
+  color: #315d3c;
 }

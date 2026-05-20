@@ -56,7 +56,7 @@ Page({
 
   goToSearch() {
     wx.navigateTo({
-      url: "/pages/search/search"
+      url: "/pages/search/search?focus=1"
     })
   },
 
