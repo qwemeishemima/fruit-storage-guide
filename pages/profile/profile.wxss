@@ -1,0 +1,26 @@
+.profile-card {
+  padding: 40rpx 36rpx;
+}
+
+.brand {
+  font-size: 42rpx;
+  font-weight: 800;
+  color: #2f7d4f;
+}
+
+.description {
+  margin-top: 16rpx;
+  color: #59685b;
+  font-size: 28rpx;
+  line-height: 1.7;
+}
+
+.version {
+  display: inline-block;
+  margin-top: 32rpx;
+  padding: 12rpx 22rpx;
+  border-radius: 999rpx;
+  background: #f1f2eb;
+  color: #7f8a7b;
+  font-size: 24rpx;
+}

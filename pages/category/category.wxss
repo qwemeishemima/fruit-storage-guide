@@ -1,0 +1,12 @@
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.category-card {
+  padding: 28rpx 30rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #315d3c;
+}

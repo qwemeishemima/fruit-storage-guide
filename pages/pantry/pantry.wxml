@@ -1,0 +1,7 @@
+<view class="page pantry-page">
+  <view class="empty-card card">
+    <view class="empty-title">还没有添加食材</view>
+    <view class="muted-text">后续可以在这里查看家里的蔬果保存记录。</view>
+    <view class="placeholder-button">以后可添加我的食材</view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+<view class="page category-page">
+  <view class="section-title">分类</view>
+  <view class="category-list">
+    <view class="category-card card">水果类</view>
+    <view class="category-card card">叶菜类</view>
+    <view class="category-card card">根茎类</view>
+    <view class="category-card card">瓜果类</view>
+    <view class="category-card card">菌菇类</view>
+    <view class="category-card card">葱姜蒜类</view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+.pantry-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-card {
+  width: 100%;
+  padding: 56rpx 36rpx;
+  text-align: center;
+}
+
+.empty-title {
+  margin-bottom: 16rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #243126;
+}
+
+.placeholder-button {
+  display: inline-block;
+  margin-top: 32rpx;
+  padding: 20rpx 32rpx;
+  border-radius: 999rpx;
+  background: #eaf5e9;
+  color: #315d3c;
+  font-size: 28rpx;
+}

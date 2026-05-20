@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/category/category",
+    "pages/pantry/pantry",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "鲜存记",
+    "navigationBarBackgroundColor": "#f7fbf4",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7fbf4",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#7f8a7b",
+    "selectedColor": "#3f8f5a",
+    "backgroundColor": "#fffdf7",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/pantry/pantry",
+        "text": "我的食材"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

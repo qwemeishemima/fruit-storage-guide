@@ -1,0 +1,53 @@
+.home-page {
+  padding-top: 40rpx;
+}
+
+.hero {
+  padding: 40rpx 36rpx;
+}
+
+.brand {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #2f7d4f;
+}
+
+.slogan {
+  margin-top: 12rpx;
+  font-size: 28rpx;
+  color: #59685b;
+}
+
+.search-box {
+  margin-top: 28rpx;
+  padding: 24rpx 28rpx;
+  border: 2rpx solid #dfeadd;
+  border-radius: 24rpx;
+  background: #ffffff;
+}
+
+.search-placeholder {
+  font-size: 28rpx;
+  color: #9aa59a;
+}
+
+.quick-section {
+  margin-top: 36rpx;
+}
+
+.quick-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.quick-item {
+  box-sizing: border-box;
+  min-width: 200rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 20rpx;
+  background: #eaf5e9;
+  color: #315d3c;
+  font-size: 28rpx;
+  text-align: center;
+}

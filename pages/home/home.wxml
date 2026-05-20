@@ -1,0 +1,21 @@
+<view class="page home-page">
+  <view class="hero card">
+    <view class="brand">鲜存记</view>
+    <view class="slogan">查怎么存，记别放坏</view>
+  </view>
+
+  <view class="search-box">
+    <text class="search-placeholder">搜索蔬果名称</text>
+  </view>
+
+  <view class="quick-section">
+    <view class="section-title">常用入口</view>
+    <view class="quick-grid">
+      <view class="quick-item">不能放冰箱</view>
+      <view class="quick-item">必须冷藏</view>
+      <view class="quick-item">容易坏</view>
+      <view class="quick-item">水果</view>
+      <view class="quick-item">蔬菜</view>
+    </view>
+  </view>
+</view>
