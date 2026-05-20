@@ -22,8 +22,8 @@ const categories = [
   },
   {
     id: "melon",
-    name: "瓜果类",
-    desc: "瓜类和茄果类，保存方式与成熟度关系较大。",
+    name: "瓜茄豆类",
+    desc: "黄瓜、番茄、茄子、豆角等常见瓜茄类蔬菜。",
     icon: "瓜",
     color: "#eef6e1"
   },

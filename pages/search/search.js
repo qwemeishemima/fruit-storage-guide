@@ -1,15 +1,22 @@
-const { searchFoods, getFoodsByTag, getCategoryById } = require("../../utils/food")
+var foodUtils = require("../../utils/food")
 
 function buildResultCards(foods) {
-  return foods.map((food) => {
-    const category = getCategoryById(food.category)
+  var list = []
 
-    return {
-      ...food,
+  for (var i = 0; i < foods.length; i += 1) {
+    var food = foods[i]
+    var category = foodUtils.getCategoryById(food.category)
+
+    list.push({
+      id: food.id,
+      name: food.name,
+      summary: food.summary,
       categoryName: category ? category.name : "未分类",
       visibleTags: (food.tags || []).slice(0, 3)
-    }
-  })
+    })
+  }
+
+  return list
 }
 
 Page({
@@ -22,16 +29,18 @@ Page({
     autoFocus: false
   },
 
-  onLoad(options) {
+  onLoad: function (options) {
+    var that = this
+
     if (options.focus === "1") {
-      setTimeout(() => {
-        this.setData({
+      setTimeout(function () {
+        that.setData({
           autoFocus: true
         })
       }, 120)
     }
 
-    let tag = ""
+    var tag = ""
 
     try {
       tag = decodeURIComponent(options.tag || "").trim()
@@ -45,21 +54,21 @@ Page({
 
     this.setData({
       keyword: "",
-      results: buildResultCards(getFoodsByTag(tag)),
+      results: buildResultCards(foodUtils.getFoodsByTag(tag)),
       hasSearched: true,
       mode: "tag",
       activeTag: tag
     })
   },
 
-  onKeywordInput(event) {
+  onKeywordInput: function (event) {
     this.setData({
       keyword: event.detail.value
     })
   },
 
-  onSearch() {
-    const keyword = this.data.keyword.trim()
+  onSearch: function () {
+    var keyword = this.data.keyword.trim()
 
     if (!keyword) {
       this.setData({
@@ -72,22 +81,22 @@ Page({
     }
 
     this.setData({
-      results: buildResultCards(searchFoods(keyword)),
+      results: buildResultCards(foodUtils.searchFoods(keyword)),
       hasSearched: true,
       mode: "search",
       activeTag: ""
     })
   },
 
-  goToDetail(event) {
-    const { id } = event.currentTarget.dataset
+  goToDetail: function (event) {
+    var id = event.currentTarget.dataset.id
 
     if (!id) {
       return
     }
 
     wx.navigateTo({
-      url: `/pages/detail/detail?id=${id}`
+      url: "/pages/detail/detail?id=" + id
     })
   }
 })

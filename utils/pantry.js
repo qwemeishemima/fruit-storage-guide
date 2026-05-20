@@ -1,50 +1,63 @@
-const STORAGE_KEY = "myFoods"
+var STORAGE_KEY = "myFoods"
+
+function padNumber(value) {
+  return value < 10 ? "0" + value : String(value)
+}
 
 function getTodayText() {
-  const now = new Date()
-  const year = now.getFullYear()
-  const month = String(now.getMonth() + 1).padStart(2, "0")
-  const day = String(now.getDate()).padStart(2, "0")
+  var now = new Date()
+  var year = now.getFullYear()
+  var month = padNumber(now.getMonth() + 1)
+  var day = padNumber(now.getDate())
 
-  return `${year}-${month}-${day}`
+  return year + "-" + month + "-" + day
 }
 
 function parseDateText(dateText) {
+  var date
+
   if (!dateText) {
     return null
   }
 
-  const date = new Date(`${dateText}T00:00:00`)
+  date = new Date(dateText + "T00:00:00")
 
-  return Number.isNaN(date.getTime()) ? null : date
+  return isNaN(date.getTime()) ? null : date
 }
 
 function getDaysBetween(startDate, endDate) {
-  const oneDay = 24 * 60 * 60 * 1000
-  const startTime = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()).getTime()
-  const endTime = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate()).getTime()
+  var oneDay = 24 * 60 * 60 * 1000
+  var startTime = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()).getTime()
+  var endTime = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate()).getTime()
 
   return Math.max(0, Math.floor((endTime - startTime) / oneDay))
 }
 
 function parseShelfLifeDays(text) {
-  const value = String(text || "").trim()
+  var value = String(text || "").trim()
+  var weekMatch
+  var rangeMatch
+  var dayMatch
 
-  if (!value || value.indexOf("不建议") !== -1 || value.indexOf("当天") !== -1) {
-    return value.indexOf("当天") !== -1 ? 0 : null
+  if (!value || value.indexOf("不建议") !== -1) {
+    return null
   }
 
-  const weekMatch = value.match(/(\d+)\s*周/)
+  if (value.indexOf("当天") !== -1) {
+    return 0
+  }
+
+  weekMatch = value.match(/(\d+)\s*周/)
   if (weekMatch) {
     return Number(weekMatch[1]) * 7
   }
 
-  const rangeMatch = value.match(/(\d+)\s*-\s*(\d+)\s*天/)
+  rangeMatch = value.match(/(\d+)\s*-\s*(\d+)\s*天/)
   if (rangeMatch) {
     return Number(rangeMatch[1])
   }
 
-  const dayMatch = value.match(/(\d+)\s*天/)
+  dayMatch = value.match(/(\d+)\s*天/)
   if (dayMatch) {
     return Number(dayMatch[1])
   }
@@ -53,11 +66,13 @@ function parseShelfLifeDays(text) {
 }
 
 function getStorageDays(food) {
+  var coldDays
+
   if (!food) {
     return null
   }
 
-  const coldDays = parseShelfLifeDays(food.coldShelfLife)
+  coldDays = parseShelfLifeDays(food.coldShelfLife)
 
   if (coldDays !== null) {
     return coldDays
@@ -67,8 +82,10 @@ function getStorageDays(food) {
 }
 
 function getPantryFoodStatus(record, food) {
-  const storageDays = getStorageDays(food)
-  const addedDate = parseDateText(record && record.addedAt)
+  var storageDays = getStorageDays(food)
+  var addedDate = parseDateText(record && record.addedAt)
+  var passedDays
+  var remainingDays
 
   if (storageDays === null || !addedDate) {
     return {
@@ -77,20 +94,20 @@ function getPantryFoodStatus(record, food) {
     }
   }
 
-  const passedDays = getDaysBetween(addedDate, new Date())
-  const remainingDays = storageDays - passedDays
+  passedDays = getDaysBetween(addedDate, new Date())
+  remainingDays = storageDays - passedDays
 
   if (passedDays === 0) {
     return {
       type: "fresh",
-      text: `今天加入，建议 ${Math.max(storageDays, 1)} 天内吃完`
+      text: "今天加入，建议 " + Math.max(storageDays, 1) + " 天内吃完"
     }
   }
 
   if (remainingDays > 1) {
     return {
       type: "fresh",
-      text: `还剩 ${remainingDays} 天左右`
+      text: "还剩 " + remainingDays + " 天左右"
     }
   }
 
@@ -108,7 +125,7 @@ function getPantryFoodStatus(record, food) {
 }
 
 function getMyFoods() {
-  const records = wx.getStorageSync(STORAGE_KEY)
+  var records = wx.getStorageSync(STORAGE_KEY)
 
   return Array.isArray(records) ? records : []
 }
@@ -118,10 +135,24 @@ function saveMyFoods(records) {
 }
 
 function hasMyFood(foodId) {
-  return getMyFoods().some((record) => record.foodId === foodId)
+  var records = getMyFoods()
+  var i
+
+  for (i = 0; i < records.length; i += 1) {
+    if (records[i].foodId === foodId) {
+      return true
+    }
+  }
+
+  return false
 }
 
 function addMyFood(food) {
+  var records
+  var record
+  var nextRecords
+  var i
+
   if (!food || !food.id) {
     return {
       added: false,
@@ -129,33 +160,48 @@ function addMyFood(food) {
     }
   }
 
-  const records = getMyFoods()
+  records = getMyFoods()
 
-  if (records.some((record) => record.foodId === food.id)) {
-    return {
-      added: false,
-      reason: "exists"
+  for (i = 0; i < records.length; i += 1) {
+    if (records[i].foodId === food.id) {
+      return {
+        added: false,
+        reason: "exists"
+      }
     }
   }
 
-  const record = {
-    recordId: `${food.id}_${Date.now()}`,
+  record = {
+    recordId: food.id + "_" + Date.now(),
     foodId: food.id,
     name: food.name,
     addedAt: getTodayText()
   }
 
-  saveMyFoods([record, ...records])
+  nextRecords = [record]
+
+  for (i = 0; i < records.length; i += 1) {
+    nextRecords.push(records[i])
+  }
+
+  saveMyFoods(nextRecords)
 
   return {
     added: true,
-    record
+    record: record
   }
 }
 
 function removeMyFood(recordId) {
-  const records = getMyFoods()
-  const nextRecords = records.filter((record) => record.recordId !== recordId)
+  var records = getMyFoods()
+  var nextRecords = []
+  var i
+
+  for (i = 0; i < records.length; i += 1) {
+    if (records[i].recordId !== recordId) {
+      nextRecords.push(records[i])
+    }
+  }
 
   saveMyFoods(nextRecords)
 
@@ -163,10 +209,10 @@ function removeMyFood(recordId) {
 }
 
 module.exports = {
-  getMyFoods,
-  addMyFood,
-  removeMyFood,
-  hasMyFood,
-  parseShelfLifeDays,
-  getPantryFoodStatus
+  getMyFoods: getMyFoods,
+  addMyFood: addMyFood,
+  removeMyFood: removeMyFood,
+  hasMyFood: hasMyFood,
+  parseShelfLifeDays: parseShelfLifeDays,
+  getPantryFoodStatus: getPantryFoodStatus
 }

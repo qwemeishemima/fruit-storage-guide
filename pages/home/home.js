@@ -1,7 +1,7 @@
-const { getFoodById } = require("../../utils/food")
+var foodUtils = require("../../utils/food")
 
-const recommendFoodId = "banana"
-const commonFoodIds = ["tomato", "cucumber", "potato", "strawberry", "lettuce"]
+var recommendFoodId = "banana"
+var commonFoodIds = ["tomato", "cucumber", "potato", "strawberry", "lettuce"]
 
 function buildFoodCard(food) {
   if (!food) {
@@ -9,7 +9,9 @@ function buildFoodCard(food) {
   }
 
   return {
-    ...food,
+    id: food.id,
+    name: food.name,
+    summary: food.summary,
     visibleTags: (food.tags || []).slice(0, 3)
   }
 }
@@ -42,45 +44,51 @@ Page({
     ]
   },
 
-  onLoad() {
-    const recommendFood = buildFoodCard(getFoodById(recommendFoodId))
-    const commonFoods = commonFoodIds
-      .map((id) => buildFoodCard(getFoodById(id)))
-      .filter(Boolean)
+  onLoad: function () {
+    var recommendFood = buildFoodCard(foodUtils.getFoodById(recommendFoodId))
+    var commonFoods = []
+
+    for (var i = 0; i < commonFoodIds.length; i += 1) {
+      var food = buildFoodCard(foodUtils.getFoodById(commonFoodIds[i]))
+
+      if (food) {
+        commonFoods.push(food)
+      }
+    }
 
     this.setData({
-      recommendFood,
-      commonFoods
+      recommendFood: recommendFood,
+      commonFoods: commonFoods
     })
   },
 
-  goToSearch() {
+  goToSearch: function () {
     wx.navigateTo({
       url: "/pages/search/search?focus=1"
     })
   },
 
-  goToTag(event) {
-    const { tag } = event.currentTarget.dataset
+  goToTag: function (event) {
+    var tag = event.currentTarget.dataset.tag
 
     if (!tag) {
       return
     }
 
     wx.navigateTo({
-      url: `/pages/search/search?tag=${encodeURIComponent(tag)}`
+      url: "/pages/search/search?tag=" + encodeURIComponent(tag)
     })
   },
 
-  goToDetail(event) {
-    const { id } = event.currentTarget.dataset
+  goToDetail: function (event) {
+    var id = event.currentTarget.dataset.id
 
     if (!id) {
       return
     }
 
     wx.navigateTo({
-      url: `/pages/detail/detail?id=${id}`
+      url: "/pages/detail/detail?id=" + id
     })
   }
 })

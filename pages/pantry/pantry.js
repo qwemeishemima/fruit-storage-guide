@@ -1,16 +1,29 @@
-const { getFoodById } = require("../../utils/food")
-const { getMyFoods, removeMyFood, getPantryFoodStatus } = require("../../utils/pantry")
+var foodUtils = require("../../utils/food")
+var pantryUtils = require("../../utils/pantry")
 
 function buildPantryItem(record) {
-  const food = getFoodById(record.foodId)
-  const status = getPantryFoodStatus(record, food)
+  var food = foodUtils.getFoodById(record.foodId)
+  var status = pantryUtils.getPantryFoodStatus(record, food)
 
   return {
-    ...record,
+    recordId: record.recordId,
+    foodId: record.foodId,
+    name: record.name,
+    addedAt: record.addedAt,
     summary: food ? food.summary : "暂无保存结论",
     statusText: status.text,
     statusType: status.type
   }
+}
+
+function buildPantryItems(records) {
+  var list = []
+
+  for (var i = 0; i < records.length; i += 1) {
+    list.push(buildPantryItem(records[i]))
+  }
+
+  return list
 }
 
 Page({
@@ -19,42 +32,43 @@ Page({
     hasMyFoods: false
   },
 
-  onShow() {
+  onShow: function () {
     this.loadMyFoods()
   },
 
-  loadMyFoods() {
-    const myFoods = getMyFoods().map(buildPantryItem)
+  loadMyFoods: function () {
+    var myFoods = buildPantryItems(pantryUtils.getMyFoods())
 
     this.setData({
-      myFoods,
+      myFoods: myFoods,
       hasMyFoods: myFoods.length > 0
     })
   },
 
-  goToDetail(event) {
-    const { id } = event.currentTarget.dataset
+  goToDetail: function (event) {
+    var id = event.currentTarget.dataset.id
 
     if (!id) {
       return
     }
 
     wx.navigateTo({
-      url: `/pages/detail/detail?id=${id}`
+      url: "/pages/detail/detail?id=" + id
     })
   },
 
-  deleteRecord(event) {
-    const { recordId } = event.currentTarget.dataset
+  deleteRecord: function (event) {
+    var recordId = event.currentTarget.dataset.recordId
 
     if (!recordId) {
       return
     }
 
-    const nextRecords = removeMyFood(recordId)
+    var nextRecords = pantryUtils.removeMyFood(recordId)
+    var myFoods = buildPantryItems(nextRecords)
 
     this.setData({
-      myFoods: nextRecords.map(buildPantryItem),
+      myFoods: myFoods,
       hasMyFoods: nextRecords.length > 0
     })
 

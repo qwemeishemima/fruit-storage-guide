@@ -1,5 +1,5 @@
-const { getFoodById, getCategoryById } = require("../../utils/food")
-const { addMyFood, hasMyFood } = require("../../utils/pantry")
+var foodUtils = require("../../utils/food")
+var pantryUtils = require("../../utils/pantry")
 
 Page({
   data: {
@@ -9,8 +9,10 @@ Page({
     isInPantry: false
   },
 
-  onLoad(options) {
-    const food = getFoodById(options.id)
+  onLoad: function (options) {
+    var food = foodUtils.getFoodById(options.id)
+    var category
+    var infoItems
 
     if (!food) {
       this.setData({
@@ -22,8 +24,8 @@ Page({
       return
     }
 
-    const category = getCategoryById(food.category)
-    const infoItems = [
+    category = foodUtils.getCategoryById(food.category)
+    infoItems = [
       {
         label: "是否建议冷藏",
         value: food.fridgeAdvice
@@ -59,14 +61,14 @@ Page({
     ]
 
     this.setData({
-      food,
+      food: food,
       categoryName: category ? category.name : "未分类",
-      infoItems,
-      isInPantry: hasMyFood(food.id)
+      infoItems: infoItems,
+      isInPantry: pantryUtils.hasMyFood(food.id)
     })
   },
 
-  handlePantryAction() {
+  handlePantryAction: function () {
     if (this.data.isInPantry) {
       wx.switchTab({
         url: "/pages/pantry/pantry"
@@ -77,12 +79,14 @@ Page({
     this.addToPantry()
   },
 
-  addToPantry() {
+  addToPantry: function () {
+    var result
+
     if (!this.data.food) {
       return
     }
 
-    const result = addMyFood(this.data.food)
+    result = pantryUtils.addMyFood(this.data.food)
 
     if (!result.added && result.reason === "exists") {
       wx.showToast({

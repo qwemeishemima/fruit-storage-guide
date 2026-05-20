@@ -1,31 +1,53 @@
-const { categories } = require("../../data/categories")
-const { getFoodsByCategory } = require("../../utils/food")
+var categoryData = require("../../data/categories")
+var foodUtils = require("../../utils/food")
+var categories = categoryData.categories
 
 function buildCategories(activeCategoryId) {
-  return categories.map((category) => ({
-    ...category,
-    isActive: category.id === activeCategoryId
-  }))
+  var list = []
+
+  for (var i = 0; i < categories.length; i += 1) {
+    var category = categories[i]
+    list.push({
+      id: category.id,
+      name: category.name,
+      desc: category.desc,
+      icon: category.icon,
+      color: category.color,
+      isActive: category.id === activeCategoryId
+    })
+  }
+
+  return list
 }
 
 function buildFoodCards(categoryId) {
-  return getFoodsByCategory(categoryId).map((food) => ({
-    ...food,
-    visibleTags: (food.tags || []).slice(0, 3)
-  }))
+  var foods = foodUtils.getFoodsByCategory(categoryId)
+  var list = []
+
+  for (var i = 0; i < foods.length; i += 1) {
+    var food = foods[i]
+    list.push({
+      id: food.id,
+      name: food.name,
+      summary: food.summary,
+      visibleTags: (food.tags || []).slice(0, 3)
+    })
+  }
+
+  return list
 }
 
 Page({
   data: {
-    categories,
+    categories: categories,
     activeCategoryId: "",
     activeCategory: null,
     foods: [],
     hasFoods: false
   },
 
-  onLoad() {
-    const firstCategory = categories[0]
+  onLoad: function () {
+    var firstCategory = categories[0]
 
     if (!firstCategory) {
       return
@@ -34,21 +56,29 @@ Page({
     this.setActiveCategory(firstCategory.id)
   },
 
-  setActiveCategory(categoryId) {
-    const activeCategory = categories.find((category) => category.id === categoryId) || null
-    const foods = buildFoodCards(categoryId)
+  setActiveCategory: function (categoryId) {
+    var activeCategory = null
+
+    for (var i = 0; i < categories.length; i += 1) {
+      if (categories[i].id === categoryId) {
+        activeCategory = categories[i]
+        break
+      }
+    }
+
+    var foods = buildFoodCards(categoryId)
 
     this.setData({
       categories: buildCategories(categoryId),
       activeCategoryId: categoryId,
-      activeCategory,
-      foods,
+      activeCategory: activeCategory,
+      foods: foods,
       hasFoods: foods.length > 0
     })
   },
 
-  onCategoryTap(event) {
-    const { id } = event.currentTarget.dataset
+  onCategoryTap: function (event) {
+    var id = event.currentTarget.dataset.id
 
     if (!id || id === this.data.activeCategoryId) {
       return
@@ -57,15 +87,15 @@ Page({
     this.setActiveCategory(id)
   },
 
-  goToDetail(event) {
-    const { id } = event.currentTarget.dataset
+  goToDetail: function (event) {
+    var id = event.currentTarget.dataset.id
 
     if (!id) {
       return
     }
 
     wx.navigateTo({
-      url: `/pages/detail/detail?id=${id}`
+      url: "/pages/detail/detail?id=" + id
     })
   }
 })
