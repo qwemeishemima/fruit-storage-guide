@@ -1,5 +1,23 @@
+const { getFoodById } = require("../../utils/food")
+
+const recommendFoodId = "banana"
+const commonFoodIds = ["tomato", "cucumber", "potato", "strawberry", "lettuce"]
+
+function buildFoodCard(food) {
+  if (!food) {
+    return null
+  }
+
+  return {
+    ...food,
+    visibleTags: (food.tags || []).slice(0, 3)
+  }
+}
+
 Page({
   data: {
+    recommendFood: null,
+    commonFoods: [],
     quickEntries: [
       {
         name: "不能放冰箱",
@@ -24,6 +42,18 @@ Page({
     ]
   },
 
+  onLoad() {
+    const recommendFood = buildFoodCard(getFoodById(recommendFoodId))
+    const commonFoods = commonFoodIds
+      .map((id) => buildFoodCard(getFoodById(id)))
+      .filter(Boolean)
+
+    this.setData({
+      recommendFood,
+      commonFoods
+    })
+  },
+
   goToSearch() {
     wx.navigateTo({
       url: "/pages/search/search"
@@ -39,6 +69,18 @@ Page({
 
     wx.navigateTo({
       url: `/pages/search/search?tag=${encodeURIComponent(tag)}`
+    })
+  },
+
+  goToDetail(event) {
+    const { id } = event.currentTarget.dataset
+
+    if (!id) {
+      return
+    }
+
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${id}`
     })
   }
 })

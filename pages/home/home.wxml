@@ -22,4 +22,35 @@
       </view>
     </view>
   </view>
+
+  <view wx:if="{{recommendFood}}" class="recommend-section">
+    <view class="section-title">今日推荐</view>
+    <view class="recommend-card card" data-id="{{recommendFood.id}}" bindtap="goToDetail">
+      <view class="recommend-label">今天先看看</view>
+      <view class="recommend-name">{{recommendFood.name}}</view>
+      <view class="recommend-summary">{{recommendFood.summary}}</view>
+      <view class="tag-row">
+        <view wx:for="{{recommendFood.visibleTags}}" wx:for-item="tag" wx:key="*this" class="tag">{{tag}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{commonFoods.length}}" class="common-section">
+    <view class="section-title">大家常查</view>
+    <view class="common-grid">
+      <view
+        wx:for="{{commonFoods}}"
+        wx:key="id"
+        class="common-card card"
+        data-id="{{item.id}}"
+        bindtap="goToDetail"
+      >
+        <view class="common-name">{{item.name}}</view>
+        <view class="common-summary">{{item.summary}}</view>
+        <view class="tag-row compact">
+          <view wx:for="{{item.visibleTags}}" wx:for-item="tag" wx:key="*this" class="tag compact-tag">{{tag}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

@@ -59,3 +59,91 @@
 .quick-item:active {
   background: #dceddc;
 }
+
+.recommend-section,
+.common-section {
+  margin-top: 36rpx;
+}
+
+.recommend-card {
+  padding: 32rpx 30rpx;
+}
+
+.recommend-card:active,
+.common-card:active {
+  background: #f8fbf5;
+}
+
+.recommend-label {
+  color: #7f8a7b;
+  font-size: 24rpx;
+}
+
+.recommend-name {
+  margin-top: 8rpx;
+  color: #243126;
+  font-size: 40rpx;
+  font-weight: 800;
+}
+
+.recommend-summary {
+  margin-top: 14rpx;
+  color: #315d3c;
+  font-size: 29rpx;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.common-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.common-card {
+  min-height: 220rpx;
+  box-sizing: border-box;
+  padding: 24rpx 22rpx;
+}
+
+.common-name {
+  color: #243126;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.common-summary {
+  display: -webkit-box;
+  margin-top: 12rpx;
+  overflow: hidden;
+  color: #59685b;
+  font-size: 25rpx;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 18rpx;
+}
+
+.tag-row.compact {
+  gap: 8rpx;
+  margin-top: 16rpx;
+}
+
+.tag {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #eaf5e9;
+  color: #315d3c;
+  font-size: 23rpx;
+}
+
+.compact-tag {
+  padding: 6rpx 12rpx;
+  font-size: 21rpx;
+}
