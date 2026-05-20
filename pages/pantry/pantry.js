@@ -1,12 +1,15 @@
 const { getFoodById } = require("../../utils/food")
-const { getMyFoods, removeMyFood } = require("../../utils/pantry")
+const { getMyFoods, removeMyFood, getPantryFoodStatus } = require("../../utils/pantry")
 
 function buildPantryItem(record) {
   const food = getFoodById(record.foodId)
+  const status = getPantryFoodStatus(record, food)
 
   return {
     ...record,
-    summary: food ? food.summary : "暂无保存结论"
+    summary: food ? food.summary : "暂无保存结论",
+    statusText: status.text,
+    statusType: status.type
   }
 }
 

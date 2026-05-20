@@ -12,6 +12,7 @@
         <view class="pantry-main" data-id="{{item.foodId}}" bindtap="goToDetail">
           <view class="pantry-name">{{item.name}}</view>
           <view class="added-date">添加日期：{{item.addedAt}}</view>
+          <view class="status-pill {{item.statusType}}">{{item.statusText}}</view>
           <view class="pantry-summary">{{item.summary}}</view>
         </view>
         <button class="delete-button" data-record-id="{{item.recordId}}" catchtap="deleteRecord">删除</button>
