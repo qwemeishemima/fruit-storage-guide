@@ -1,0 +1,43 @@
+<view class="page search-page">
+  <view class="section-title">搜索食材</view>
+  <view wx:if="{{mode === 'tag' && activeTag}}" class="tag-mode-title">标签：{{activeTag}}</view>
+
+  <view class="search-panel card">
+    <input
+      class="keyword-input"
+      value="{{keyword}}"
+      placeholder="输入蔬菜或水果名称"
+      confirm-type="search"
+      bindinput="onKeywordInput"
+      bindconfirm="onSearch"
+    />
+    <button class="search-button" bindtap="onSearch">搜索</button>
+  </view>
+
+  <view wx:if="{{!hasSearched}}" class="state-card card">
+    <view class="muted-text">输入蔬菜或水果名称，看看怎么保存</view>
+  </view>
+
+  <view wx:elif="{{results.length === 0}}" class="state-card card">
+    <view class="muted-text">{{mode === 'tag' ? '这个标签下还没有食材' : '没有找到相关食材'}}</view>
+  </view>
+
+  <view wx:else class="result-list">
+    <view
+      wx:for="{{results}}"
+      wx:key="id"
+      class="result-card card"
+      data-id="{{item.id}}"
+      bindtap="goToDetail"
+    >
+      <view class="result-header">
+        <view class="food-name">{{item.name}}</view>
+        <view class="category-name">{{item.categoryName}}</view>
+      </view>
+      <view class="summary">{{item.summary}}</view>
+      <view class="tag-row">
+        <view wx:for="{{item.visibleTags}}" wx:for-item="tag" wx:key="*this" class="tag">{{tag}}</view>
+      </view>
+    </view>
+  </view>
+</view>

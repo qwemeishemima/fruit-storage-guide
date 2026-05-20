@@ -26,6 +26,10 @@
   background: #ffffff;
 }
 
+.search-box:active {
+  background: #f3f8f1;
+}
+
 .search-placeholder {
   font-size: 28rpx;
   color: #9aa59a;
@@ -50,4 +54,8 @@
   color: #315d3c;
   font-size: 28rpx;
   text-align: center;
+}
+
+.quick-item:active {
+  background: #dceddc;
 }

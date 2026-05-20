@@ -1,0 +1,29 @@
+<view class="page detail-page">
+  <view wx:if="{{!food}}" class="empty-card card">
+    <view class="muted-text">没有找到这个食材</view>
+  </view>
+
+  <block wx:else>
+    <view class="detail-hero card">
+      <view class="hero-meta">{{categoryName}}</view>
+      <view class="food-title">{{food.name}}</view>
+      <view class="hero-summary">{{food.summary}}</view>
+      <view class="tag-row">
+        <view wx:for="{{food.tags}}" wx:key="*this" class="tag">{{item}}</view>
+      </view>
+    </view>
+
+    <view class="info-card card">
+      <view class="card-title">保存信息</view>
+      <view wx:for="{{infoItems}}" wx:key="label" class="info-item">
+        <view class="info-label">{{item.label}}</view>
+        <view class="info-value">{{item.value}}</view>
+      </view>
+    </view>
+
+    <view class="info-card card">
+      <view class="card-title">保存小贴士</view>
+      <view wx:for="{{food.tips}}" wx:key="*this" class="tip-item">{{item}}</view>
+    </view>
+  </block>
+</view>

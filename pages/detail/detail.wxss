@@ -1,0 +1,99 @@
+.detail-page {
+  padding-top: 32rpx;
+}
+
+.empty-card {
+  padding: 48rpx 32rpx;
+  text-align: center;
+}
+
+.detail-hero {
+  padding: 36rpx 34rpx;
+}
+
+.hero-meta {
+  color: #7f8a7b;
+  font-size: 24rpx;
+}
+
+.food-title {
+  margin-top: 8rpx;
+  color: #243126;
+  font-size: 46rpx;
+  font-weight: 800;
+}
+
+.hero-summary {
+  margin-top: 18rpx;
+  color: #315d3c;
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 24rpx;
+}
+
+.tag {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #eaf5e9;
+  color: #315d3c;
+  font-size: 23rpx;
+}
+
+.info-card {
+  margin-top: 24rpx;
+  padding: 30rpx 32rpx;
+}
+
+.card-title {
+  margin-bottom: 20rpx;
+  color: #243126;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.info-item {
+  padding: 22rpx 0;
+  border-top: 1rpx solid #edf1e8;
+}
+
+.info-item:first-of-type {
+  border-top: none;
+}
+
+.info-label {
+  color: #7f8a7b;
+  font-size: 24rpx;
+}
+
+.info-value {
+  margin-top: 8rpx;
+  color: #243126;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.tip-item {
+  position: relative;
+  padding: 14rpx 0 14rpx 28rpx;
+  color: #243126;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.tip-item::before {
+  position: absolute;
+  left: 0;
+  top: 28rpx;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #72a66f;
+  content: "";
+}
