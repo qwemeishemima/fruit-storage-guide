@@ -7,14 +7,14 @@
 }
 
 .brand {
-  font-size: 48rpx;
+  font-size: 54rpx;
   font-weight: 800;
   color: #2f7d4f;
 }
 
 .slogan {
-  margin-top: 12rpx;
-  font-size: 28rpx;
+  margin-top: 10rpx;
+  font-size: 26rpx;
   color: #59685b;
 }
 

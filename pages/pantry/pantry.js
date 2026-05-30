@@ -57,24 +57,46 @@ Page({
     })
   },
 
+  goToAddFood: function () {
+    wx.switchTab({
+      url: "/pages/category/category"
+    })
+  },
+
   deleteRecord: function (event) {
     var recordId = event.currentTarget.dataset.recordId
+    var that = this
 
     if (!recordId) {
       return
     }
 
-    var nextRecords = pantryUtils.removeMyFood(recordId)
-    var myFoods = buildPantryItems(nextRecords)
+    wx.showModal({
+      title: "删除食材",
+      content: "确定从我的食材中移除这个食材吗？",
+      confirmText: "删除",
+      confirmColor: "#9b3d32",
+      success: function (res) {
+        var nextRecords
+        var myFoods
 
-    this.setData({
-      myFoods: myFoods,
-      hasMyFoods: nextRecords.length > 0
-    })
+        if (!res.confirm) {
+          return
+        }
 
-    wx.showToast({
-      title: "已删除",
-      icon: "success"
+        nextRecords = pantryUtils.removeMyFood(recordId)
+        myFoods = buildPantryItems(nextRecords)
+
+        that.setData({
+          myFoods: myFoods,
+          hasMyFoods: nextRecords.length > 0
+        })
+
+        wx.showToast({
+          title: "已删除",
+          icon: "success"
+        })
+      }
     })
   }
 })

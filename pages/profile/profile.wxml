@@ -1,7 +1,7 @@
 <view class="page profile-page">
   <view class="profile-card card">
-    <view class="brand">蔬果怎么放</view>
-    <view class="description">蔬菜水果保存指南，记录食材保鲜期，提醒别放坏。</view>
+    <view class="brand">鲜存记</view>
+    <view class="description">鲜存记是一款面向家庭用户的蔬果保存工具，帮你快速查询怎么存、能放多久，记录食材保鲜期，提醒别放坏。</view>
     <view class="version">MVP 版本</view>
   </view>
 </view>

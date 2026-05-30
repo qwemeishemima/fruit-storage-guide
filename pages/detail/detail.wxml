@@ -27,7 +27,10 @@
     </view>
   </block>
 
-  <view wx:if="{{food}}" class="floating-add-btn {{isInPantry ? 'added' : ''}}" bindtap="handlePantryAction">
-    <text class="floating-add-icon">{{isInPantry ? '✓' : '+'}}</text>
+  <view wx:if="{{food}}" class="floating-add-action {{isInPantry ? 'added' : ''}}" bindtap="handlePantryAction">
+    <view class="floating-add-btn">
+      <text class="floating-add-icon">{{isInPantry ? '✓' : '+'}}</text>
+    </view>
+    <text class="floating-add-label">{{isInPantry ? '查看我的食材' : '加入我的食材'}}</text>
   </view>
 </view>

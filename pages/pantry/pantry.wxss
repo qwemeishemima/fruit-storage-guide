@@ -19,10 +19,17 @@
   display: inline-block;
   margin-top: 32rpx;
   padding: 20rpx 32rpx;
+  width: auto;
+  height: auto;
   border-radius: 999rpx;
   background: #eaf5e9;
   color: #315d3c;
   font-size: 28rpx;
+  line-height: 1.2;
+}
+
+.placeholder-button::after {
+  border: none;
 }
 
 .pantry-content {

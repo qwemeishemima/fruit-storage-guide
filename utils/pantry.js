@@ -72,6 +72,10 @@ function getStorageDays(food) {
     return null
   }
 
+  if (food.shelfLife && typeof food.shelfLife.defaultDays === "number") {
+    return food.shelfLife.defaultDays
+  }
+
   coldDays = parseShelfLifeDays(food.coldShelfLife)
 
   if (coldDays !== null) {
@@ -81,8 +85,17 @@ function getStorageDays(food) {
   return parseShelfLifeDays(food.roomTempShelfLife)
 }
 
+function getWarningDays(food) {
+  if (food && food.shelfLife && typeof food.shelfLife.warningDays === "number") {
+    return food.shelfLife.warningDays
+  }
+
+  return 1
+}
+
 function getPantryFoodStatus(record, food) {
   var storageDays = getStorageDays(food)
+  var warningDays = getWarningDays(food)
   var addedDate = parseDateText(record && record.addedAt)
   var passedDays
   var remainingDays
@@ -90,37 +103,37 @@ function getPantryFoodStatus(record, food) {
   if (storageDays === null || !addedDate) {
     return {
       type: "unknown",
-      text: "暂无明确保存期限"
+      text: "留意状态"
     }
   }
 
   passedDays = getDaysBetween(addedDate, new Date())
   remainingDays = storageDays - passedDays
 
-  if (passedDays === 0) {
+  if (remainingDays < 0) {
     return {
-      type: "fresh",
-      text: "今天加入，建议 " + Math.max(storageDays, 1) + " 天内吃完"
+      type: "expired",
+      text: "可能不新鲜"
     }
   }
 
-  if (remainingDays > 1) {
-    return {
-      type: "fresh",
-      text: "还剩 " + remainingDays + " 天左右"
-    }
-  }
-
-  if (remainingDays >= 0) {
+  if (remainingDays === 0) {
     return {
       type: "soon",
-      text: "建议今天尽快吃"
+      text: "今天最好吃掉"
+    }
+  }
+
+  if (remainingDays <= warningDays) {
+    return {
+      type: "soon",
+      text: "尽快吃"
     }
   }
 
   return {
-    type: "expired",
-    text: "可能已不新鲜，请检查后食用"
+    type: "fresh",
+    text: "新鲜"
   }
 }
 

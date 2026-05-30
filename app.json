@@ -8,7 +8,7 @@
     "pages/profile/profile"
   ],
   "window": {
-    "navigationBarTitleText": "蔬果怎么放",
+    "navigationBarTitleText": "鲜存记",
     "navigationBarBackgroundColor": "#f7fbf4",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f7fbf4",

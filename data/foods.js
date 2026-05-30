@@ -11,6 +11,13 @@ const foods = [
     storageMethod: "放在阴凉通风处，成熟后可用保鲜袋短期冷藏。",
     roomTempShelfLife: "2-5天",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 5,
+      coldDays: 3,
+      bestStorage: "avoidCold",
+      warningDays: 1
+    },
     sealedAdvice: "常温不建议密封，冷藏时可轻包减少串味。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "会释放乙烯，尽量远离乙烯敏感食材。",
@@ -30,6 +37,13 @@ const foods = [
     storageMethod: "装入保鲜袋或保鲜盒，放冰箱冷藏区。",
     roomTempShelfLife: "3-7天",
     coldShelfLife: "2-4周",
+    shelfLife: {
+      defaultDays: 21,
+      roomTempDays: 7,
+      coldDays: 21,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "建议轻度密封，减少水分流失。",
     waterAdvice: "保存前不建议清洗，吃前再洗。",
     ethyleneAdvice: "会释放乙烯，容易影响叶菜和部分水果。",
@@ -49,6 +63,13 @@ const foods = [
     storageMethod: "垫厨房纸，浅盒冷藏，避免挤压。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "1-3天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "不宜完全密封，可留少量透气。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯较敏感，尽量远离苹果、香蕉。",
@@ -68,6 +89,13 @@ const foods = [
     storageMethod: "保留果梗，装袋或盒中冷藏。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "3-7天",
+    shelfLife: {
+      defaultDays: 5,
+      roomTempDays: 2,
+      coldDays: 5,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "可轻度密封，避免积水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，避免和强释放乙烯的水果久放。",
@@ -87,6 +115,13 @@ const foods = [
     storageMethod: "阴凉通风处短放，或装袋冷藏。",
     roomTempShelfLife: "3-7天",
     coldShelfLife: "2周左右",
+    shelfLife: {
+      defaultDays: 14,
+      roomTempDays: 7,
+      coldDays: 14,
+      bestStorage: "flexible",
+      warningDays: 2
+    },
     sealedAdvice: "冷藏可轻度密封，避免过度闷湿。",
     waterAdvice: "保存前保持表皮干爽。",
     ethyleneAdvice: "对乙烯影响不算敏感，一般分开放更稳妥。",
@@ -106,6 +141,13 @@ const foods = [
     storageMethod: "整瓜放阴凉处，切面盖保鲜膜后冷藏。",
     roomTempShelfLife: "2-5天",
     coldShelfLife: "切开后1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 5,
+      coldDays: 2,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "切开后必须密封，避免串味和污染。",
     waterAdvice: "切开后注意刀具和容器干净。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -125,6 +167,13 @@ const foods = [
     storageMethod: "装袋后放冰箱冷藏区，避免和苹果久放。",
     roomTempShelfLife: "2-4天",
     coldShelfLife: "1-2周",
+    shelfLife: {
+      defaultDays: 10,
+      roomTempDays: 4,
+      coldDays: 10,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "建议轻度密封，减少水分流失。",
     waterAdvice: "保存前不建议清洗，保持表皮干爽。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和释放乙烯水果分开。",
@@ -144,6 +193,13 @@ const foods = [
     storageMethod: "未熟常温避压，成熟后单层冷藏。",
     roomTempShelfLife: "1-3天",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 3,
+      coldDays: 3,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "冷藏可轻包，不要挤压密封。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "会释放乙烯，也容易被乙烯催熟。",
@@ -163,6 +219,13 @@ const foods = [
     storageMethod: "保留果壳，装袋或盒中冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少失水。",
     waterAdvice: "表面有水要擦干，避免袋内积水。",
     ethyleneAdvice: "一般建议与释放乙烯水果分开。",
@@ -182,6 +245,13 @@ const foods = [
     storageMethod: "未熟放阴凉处，熟后装袋冷藏。",
     roomTempShelfLife: "2-5天",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 5,
+      coldDays: 3,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "熟后冷藏可轻度密封。",
     waterAdvice: "保存前不要清洗，保持表皮干爽。",
     ethyleneAdvice: "会释放乙烯，也会被乙烯加快催熟。",
@@ -201,6 +271,13 @@ const foods = [
     storageMethod: "完整果阴凉处短放，切开后包好冷藏。",
     roomTempShelfLife: "2-3天",
     coldShelfLife: "5-7天",
+    shelfLife: {
+      defaultDays: 6,
+      roomTempDays: 3,
+      coldDays: 6,
+      bestStorage: "flexible",
+      warningDays: 2
+    },
     sealedAdvice: "切开后必须密封，完整果可不密封。",
     waterAdvice: "保存前保持表皮干爽。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -220,6 +297,13 @@ const foods = [
     storageMethod: "原盒或浅盒冷藏，底部可垫纸。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "不宜完全密封，避免闷湿。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和苹果、香蕉分开。",
@@ -239,6 +323,13 @@ const foods = [
     storageMethod: "保留果梗，浅盒或袋中冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "可轻度密封，避免积水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和释放乙烯水果分开。",
@@ -258,6 +349,13 @@ const foods = [
     storageMethod: "硬果常温催熟，软果装袋冷藏。",
     roomTempShelfLife: "3-7天",
     coldShelfLife: "1周左右",
+    shelfLife: {
+      defaultDays: 7,
+      roomTempDays: 7,
+      coldDays: 7,
+      bestStorage: "flexible",
+      warningDays: 2
+    },
     sealedAdvice: "冷藏可轻度密封，减少失水。",
     waterAdvice: "保存前不要清洗。",
     ethyleneAdvice: "对乙烯敏感，也可被苹果催熟。",
@@ -277,6 +375,13 @@ const foods = [
     storageMethod: "完整柠檬装袋冷藏，切开后包好切面。",
     roomTempShelfLife: "3-7天",
     coldShelfLife: "2-4周",
+    shelfLife: {
+      defaultDays: 21,
+      roomTempDays: 7,
+      coldDays: 21,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "建议密封，切开后更要包好。",
     waterAdvice: "保存前保持表皮干爽。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -296,6 +401,13 @@ const foods = [
     storageMethod: "完整果阴凉通风，剥开后装盒冷藏。",
     roomTempShelfLife: "1-2周",
     coldShelfLife: "剥开后2-3天",
+    shelfLife: {
+      defaultDays: 14,
+      roomTempDays: 14,
+      coldDays: 3,
+      bestStorage: "roomTemp",
+      warningDays: 2
+    },
     sealedAdvice: "剥开后必须密封，避免变干和串味。",
     waterAdvice: "保存前保持表皮干爽。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -315,6 +427,13 @@ const foods = [
     storageMethod: "整果阴凉处短放，切块后装盒冷藏。",
     roomTempShelfLife: "1-3天",
     coldShelfLife: "切开后2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 3,
+      coldDays: 3,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "切开后必须密封。",
     waterAdvice: "切开后注意容器干净，避免积水。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -334,6 +453,13 @@ const foods = [
     storageMethod: "未熟常温放软，熟后装袋冷藏。",
     roomTempShelfLife: "2-4天",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 4,
+      coldDays: 3,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "切开后必须密封冷藏。",
     waterAdvice: "保存前不要清洗，切开后注意容器干净。",
     ethyleneAdvice: "会释放乙烯，也容易被乙烯催熟。",
@@ -353,6 +479,13 @@ const foods = [
     storageMethod: "果肉装密封盒冷藏，避免串味。",
     roomTempShelfLife: "完整果1-2天",
     coldShelfLife: "果肉1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 2,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，气味重且容易串味。",
     waterAdvice: "果肉保存时避免接触生水。",
     ethyleneAdvice: "成熟后气味明显，建议单独保存。",
@@ -372,6 +505,13 @@ const foods = [
     storageMethod: "完整果阴凉处短放，切面包好冷藏。",
     roomTempShelfLife: "2-4天",
     coldShelfLife: "切开后1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 4,
+      coldDays: 2,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "切开后必须密封。",
     waterAdvice: "切开前表皮可清洗，切开后注意容器干净。",
     ethyleneAdvice: "成熟瓜会释放一定乙烯，建议和叶菜分开。",
@@ -391,6 +531,13 @@ const foods = [
     storageMethod: "装袋后冷藏，避免受压。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 2,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少失水。",
     waterAdvice: "保存前不要清洗。",
     ethyleneAdvice: "一般建议与释放乙烯水果分开。",
@@ -410,6 +557,13 @@ const foods = [
     storageMethod: "未熟阴凉处放软，熟后浅盒冷藏。",
     roomTempShelfLife: "2-4天",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 4,
+      coldDays: 4,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "冷藏可轻度密封，避免挤压。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "会释放乙烯，也容易被乙烯催熟。",
@@ -429,6 +583,13 @@ const foods = [
     storageMethod: "去除烂叶，包厨房纸后装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议装袋但不要压太紧。",
     waterAdvice: "怕积水，保存前不建议清洗。",
     ethyleneAdvice: "对乙烯敏感，远离苹果、香蕉。",
@@ -448,6 +609,13 @@ const foods = [
     storageMethod: "用厨房纸包裹后放保鲜袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，袋内避免积水。",
     waterAdvice: "怕水，保存前不建议清洗。",
     ethyleneAdvice: "对乙烯敏感，避免和苹果、香蕉久放。",
@@ -467,6 +635,13 @@ const foods = [
     storageMethod: "包纸或装袋，放冰箱冷藏区。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议装袋保湿，但避免水汽太重。",
     waterAdvice: "怕积水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯敏感，避免和释放乙烯的水果同放。",
@@ -486,6 +661,13 @@ const foods = [
     storageMethod: "根部包湿纸，整体装袋冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议装袋，留少量透气。",
     waterAdvice: "需要适度保湿，但叶片怕积水。",
     ethyleneAdvice: "对乙烯敏感，尽量和水果分开。",
@@ -505,6 +687,13 @@ const foods = [
     storageMethod: "放在阴凉、避光、通风处，远离潮湿。",
     roomTempShelfLife: "2-4周",
     coldShelfLife: "不建议冷藏",
+    shelfLife: {
+      defaultDays: 21,
+      roomTempDays: 21,
+      coldDays: null,
+      bestStorage: "avoidCold",
+      warningDays: 2
+    },
     sealedAdvice: "不建议密封，保持通风。",
     waterAdvice: "怕潮湿，保存前不要清洗。",
     ethyleneAdvice: "对乙烯较敏感，避免和苹果、香蕉同放。",
@@ -524,6 +713,13 @@ const foods = [
     storageMethod: "放阴凉、干燥、通风处保存。",
     roomTempShelfLife: "1-3周",
     coldShelfLife: "不建议冷藏",
+    shelfLife: {
+      defaultDays: 14,
+      roomTempDays: 14,
+      coldDays: null,
+      bestStorage: "avoidCold",
+      warningDays: 2
+    },
     sealedAdvice: "不建议密封，避免闷湿。",
     waterAdvice: "怕潮湿，保存前不要清洗。",
     ethyleneAdvice: "一般建议与释放乙烯水果分开放。",
@@ -543,6 +739,13 @@ const foods = [
     storageMethod: "去掉叶子，装袋或盒中冷藏。",
     roomTempShelfLife: "2-3天",
     coldShelfLife: "1-2周",
+    shelfLife: {
+      defaultDays: 10,
+      roomTempDays: 3,
+      coldDays: 10,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "建议密封或半密封，保持水分。",
     waterAdvice: "保存前不建议清洗，避免表面潮湿。",
     ethyleneAdvice: "对乙烯有一定敏感性，久放建议与苹果分开。",
@@ -562,6 +765,13 @@ const foods = [
     storageMethod: "整根装袋冷藏，切开后包好切面。",
     roomTempShelfLife: "2-3天",
     coldShelfLife: "1周左右",
+    shelfLife: {
+      defaultDays: 7,
+      roomTempDays: 3,
+      coldDays: 7,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "建议密封，特别是切开后。",
     waterAdvice: "保存前保持表面干爽。",
     ethyleneAdvice: "一般建议与释放乙烯水果分开放。",
@@ -581,6 +791,13 @@ const foods = [
     storageMethod: "擦干表面，装袋后冷藏。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 2,
+      coldDays: 4,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少失水。",
     waterAdvice: "怕水，表面有水要擦干。",
     ethyleneAdvice: "对乙烯敏感，避免和苹果、香蕉同放。",
@@ -600,6 +817,13 @@ const foods = [
     storageMethod: "未熟常温避光，熟透后装盒冷藏。",
     roomTempShelfLife: "2-5天",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 5,
+      roomTempDays: 5,
+      coldDays: 3,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "熟透冷藏可放盒中，避免挤压。",
     waterAdvice: "保存前不建议清洗。",
     ethyleneAdvice: "会释放乙烯，也会受乙烯影响加快成熟。",
@@ -619,6 +843,13 @@ const foods = [
     storageMethod: "用纸包好，放阴凉处或冷藏区短放。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 2,
+      coldDays: 3,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "不宜闷湿密封，可轻包。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，避免和苹果、香蕉同放。",
@@ -638,6 +869,13 @@ const foods = [
     storageMethod: "擦干表面，装袋冷藏。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "4-7天",
+    shelfLife: {
+      defaultDays: 5,
+      roomTempDays: 2,
+      coldDays: 5,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免袋内积水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和苹果分开。",
@@ -657,6 +895,13 @@ const foods = [
     storageMethod: "用纸袋或垫纸盒装，放冰箱冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "不建议完全密封，避免闷出水汽。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议与强气味和水果分开放。",
@@ -676,6 +921,13 @@ const foods = [
     storageMethod: "原包装冷藏，开封后扎紧或装盒。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "开封后建议密封冷藏。",
     waterAdvice: "怕水，烹调前再清洗。",
     ethyleneAdvice: "一般建议与水果分开放。",
@@ -695,6 +947,13 @@ const foods = [
     storageMethod: "放阴凉、干燥、通风处。",
     roomTempShelfLife: "2-4周",
     coldShelfLife: "不建议冷藏",
+    shelfLife: {
+      defaultDays: 21,
+      roomTempDays: 21,
+      coldDays: null,
+      bestStorage: "avoidCold",
+      warningDays: 2
+    },
     sealedAdvice: "不建议密封，保持通风。",
     waterAdvice: "怕水，必须保持干燥。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -714,6 +973,13 @@ const foods = [
     storageMethod: "完整姜放阴凉干燥处，切开后包好冷藏。",
     roomTempShelfLife: "1-2周",
     coldShelfLife: "切开后3-5天",
+    shelfLife: {
+      defaultDays: 14,
+      roomTempDays: 14,
+      coldDays: 5,
+      bestStorage: "roomTemp",
+      warningDays: 2
+    },
     sealedAdvice: "切开后建议密封，完整姜不必密封。",
     waterAdvice: "怕潮湿，保存前不要清洗。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -733,6 +999,13 @@ const foods = [
     storageMethod: "根部包湿纸，装袋冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议装袋，避免完全闷湿。",
     waterAdvice: "根部可保湿，叶片不要积水。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -752,6 +1025,13 @@ const foods = [
     storageMethod: "未开封按包装冷藏，开封后清水浸没并冷藏。",
     roomTempShelfLife: "不建议常温久放",
     coldShelfLife: "1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: null,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "开封后建议密封或盖好容器。",
     waterAdvice: "需用干净清水保存，注意每天换水。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -771,6 +1051,13 @@ const foods = [
     storageMethod: "用保鲜袋轻包，放冰箱冷藏区。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免袋内积水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -790,6 +1077,13 @@ const foods = [
     storageMethod: "整颗装袋冷藏，切开后尽快用完。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免闷湿。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -809,6 +1103,13 @@ const foods = [
     storageMethod: "整颗冷藏或阴凉短放，切面包好。",
     roomTempShelfLife: "2-3天",
     coldShelfLife: "5-7天",
+    shelfLife: {
+      defaultDays: 6,
+      roomTempDays: 3,
+      coldDays: 6,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "切开后建议包好，整颗可轻包。",
     waterAdvice: "保存前不建议清洗，避免叶间积水。",
     ethyleneAdvice: "对乙烯敏感，尽量和苹果、香蕉分开。",
@@ -828,6 +1129,13 @@ const foods = [
     storageMethod: "保留包装或装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免叶片变干。",
     waterAdvice: "怕积水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯敏感，建议和水果分开。",
@@ -847,6 +1155,13 @@ const foods = [
     storageMethod: "整颗装袋冷藏，切开后包住切面。",
     roomTempShelfLife: "2-4天",
     coldShelfLife: "1-2周",
+    shelfLife: {
+      defaultDays: 10,
+      roomTempDays: 4,
+      coldDays: 10,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "切开后建议密封，整颗可轻包。",
     waterAdvice: "保存前不要清洗，避免叶间积水。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -866,6 +1181,13 @@ const foods = [
     storageMethod: "用纸包后装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议装袋保湿，但不要积水。",
     waterAdvice: "需要适度保湿，叶片避免积水。",
     ethyleneAdvice: "对乙烯敏感，建议和苹果、香蕉分开。",
@@ -885,6 +1207,13 @@ const foods = [
     storageMethod: "用纸包好后装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免完全闷湿。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -904,6 +1233,13 @@ const foods = [
     storageMethod: "完整放阴凉通风处，切开后包好冷藏。",
     roomTempShelfLife: "2-4周",
     coldShelfLife: "切开后3-5天",
+    shelfLife: {
+      defaultDays: 21,
+      roomTempDays: 21,
+      coldDays: 5,
+      bestStorage: "roomTemp",
+      warningDays: 2
+    },
     sealedAdvice: "完整不建议密封，切开后必须包好。",
     waterAdvice: "怕潮湿，保持干燥通风。",
     ethyleneAdvice: "一般建议与土豆分开保存。",
@@ -923,6 +1259,13 @@ const foods = [
     storageMethod: "用纸包后装袋冷藏。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "4-7天",
+    shelfLife: {
+      defaultDays: 5,
+      roomTempDays: 2,
+      coldDays: 5,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少失水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -942,6 +1285,13 @@ const foods = [
     storageMethod: "整节装袋冷藏，切开后包住切面。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 2,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "切开后建议密封，整节可轻包。",
     waterAdvice: "保存前保持外皮干爽，切开后避免久放。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -961,6 +1311,13 @@ const foods = [
     storageMethod: "完整放阴凉通风处，切开后包好冷藏。",
     roomTempShelfLife: "2-4周",
     coldShelfLife: "切开后3-5天",
+    shelfLife: {
+      defaultDays: 21,
+      roomTempDays: 21,
+      coldDays: 5,
+      bestStorage: "roomTemp",
+      warningDays: 2
+    },
     sealedAdvice: "切开后必须密封，完整不建议密封。",
     waterAdvice: "完整保存要保持干燥，切面避免沾水。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -980,6 +1337,13 @@ const foods = [
     storageMethod: "完整阴凉处短放，切块后包好冷藏。",
     roomTempShelfLife: "2-5天",
     coldShelfLife: "切开后2-3天",
+    shelfLife: {
+      defaultDays: 5,
+      roomTempDays: 5,
+      coldDays: 3,
+      bestStorage: "roomTemp",
+      warningDays: 1
+    },
     sealedAdvice: "切开后必须密封。",
     waterAdvice: "切面避免沾水和长时间暴露。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -999,6 +1363,13 @@ const foods = [
     storageMethod: "用纸包好后装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "flexible",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免闷湿。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -1018,6 +1389,13 @@ const foods = [
     storageMethod: "擦干表面，装袋冷藏。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 2,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免积水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -1037,6 +1415,13 @@ const foods = [
     storageMethod: "保留外皮，装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议装袋，减少水分流失。",
     waterAdvice: "保存前不建议清洗。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1056,6 +1441,13 @@ const foods = [
     storageMethod: "用纸包后装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免闷湿。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -1075,6 +1467,13 @@ const foods = [
     storageMethod: "装袋后放冰箱冷藏区。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少失水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1094,6 +1493,13 @@ const foods = [
     storageMethod: "装袋冷藏，避免挤压。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免袋内积水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1113,6 +1519,13 @@ const foods = [
     storageMethod: "带荚冷藏更稳，剥粒后密封冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "剥粒后建议密封。",
     waterAdvice: "保存前不要清洗，避免潮湿。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1132,6 +1545,13 @@ const foods = [
     storageMethod: "带荚装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少失水。",
     waterAdvice: "保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1151,6 +1571,13 @@ const foods = [
     storageMethod: "包纸后装袋冷藏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，避免闷湿。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯敏感，建议和水果分开。",
@@ -1170,6 +1597,13 @@ const foods = [
     storageMethod: "包纸或装袋冷藏，避免压坏。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，保持适度湿润。",
     waterAdvice: "怕积水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯敏感，建议和水果分开。",
@@ -1189,6 +1623,13 @@ const foods = [
     storageMethod: "用纸包好后装袋冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少失水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
@@ -1208,6 +1649,13 @@ const foods = [
     storageMethod: "保留外壳，装袋冷藏。",
     roomTempShelfLife: "1-2天",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 2,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "建议轻度密封，减少水分流失。",
     waterAdvice: "保存前不要清洗，保持外壳干爽。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1227,6 +1675,13 @@ const foods = [
     storageMethod: "用纸袋或保鲜袋轻包后冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "3-5天",
+    shelfLife: {
+      defaultDays: 4,
+      roomTempDays: 0,
+      coldDays: 4,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "不建议完全闷湿密封，可留少量透气。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1246,6 +1701,13 @@ const foods = [
     storageMethod: "垫纸后装袋或盒中冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-3天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "不宜完全密封，避免闷出水汽。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1265,6 +1727,13 @@ const foods = [
     storageMethod: "原包装冷藏，开封后扎紧或装盒。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "开封后建议轻度密封。",
     waterAdvice: "怕水，烹调前再清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1284,6 +1753,13 @@ const foods = [
     storageMethod: "原包装或装盒冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "开封后建议轻度密封。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1303,6 +1779,13 @@ const foods = [
     storageMethod: "纸袋或垫纸盒装后冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-4天",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 0,
+      coldDays: 3,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "不建议完全密封，避免积水。",
     waterAdvice: "怕水，保存前不要清洗。",
     ethyleneAdvice: "一般建议和水果分开。",
@@ -1322,6 +1805,13 @@ const foods = [
     storageMethod: "鲜木耳装袋冷藏，干木耳密封干燥保存。",
     roomTempShelfLife: "鲜木耳当天尽快用",
     coldShelfLife: "鲜木耳1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "鲜木耳建议轻度密封，干木耳必须密封防潮。",
     waterAdvice: "干木耳怕潮，泡发后不要久放。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1341,6 +1831,13 @@ const foods = [
     storageMethod: "鲜银耳装盒冷藏，干银耳密封放阴凉处。",
     roomTempShelfLife: "鲜银耳当天尽快用",
     coldShelfLife: "鲜银耳1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "鲜银耳建议密封冷藏，干银耳密封防潮。",
     waterAdvice: "干银耳怕潮，泡发后尽快用。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1360,6 +1857,13 @@ const foods = [
     storageMethod: "放冰箱蛋架或原盒中冷藏。",
     roomTempShelfLife: "3-7天",
     coldShelfLife: "2-4周",
+    shelfLife: {
+      defaultDays: 21,
+      roomTempDays: 7,
+      coldDays: 21,
+      bestStorage: "cold",
+      warningDays: 2
+    },
     sealedAdvice: "不必密封，避免和气味重的食材混放。",
     waterAdvice: "保存前不建议清洗，避免破坏表面保护。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1379,6 +1883,13 @@ const foods = [
     storageMethod: "开封后盖紧放冰箱冷藏区。",
     roomTempShelfLife: "开封后不建议常温久放",
     coldShelfLife: "开封后1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: null,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须盖紧密封，避免串味。",
     waterAdvice: "避免瓶口污染，倒完及时盖好。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1398,6 +1909,13 @@ const foods = [
     storageMethod: "按包装冷藏，开封后盖好。",
     roomTempShelfLife: "不建议常温久放",
     coldShelfLife: "开封后1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: null,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "开封后必须密封。",
     waterAdvice: "避免勺子和容器污染。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1417,6 +1935,13 @@ const foods = [
     storageMethod: "密封放阴凉处，吃不完可冷冻保存。",
     roomTempShelfLife: "1-3天",
     coldShelfLife: "不建议冷藏",
+    shelfLife: {
+      defaultDays: 3,
+      roomTempDays: 3,
+      coldDays: null,
+      bestStorage: "avoidCold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，避免变干。",
     waterAdvice: "怕潮，避免放在潮湿处。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1436,6 +1961,13 @@ const foods = [
     storageMethod: "放凉后装袋，冷藏或冷冻保存。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: 0,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，避免变干和串味。",
     waterAdvice: "放凉后再装袋，避免水汽太重。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1455,6 +1987,13 @@ const foods = [
     storageMethod: "放凉不久后装盒密封冷藏。",
     roomTempShelfLife: "不建议常温久放",
     coldShelfLife: "1天左右",
+    shelfLife: {
+      defaultDays: 1,
+      roomTempDays: null,
+      coldDays: 1,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，避免串味和污染。",
     waterAdvice: "避免反复开盖和接触生水。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1474,6 +2013,13 @@ const foods = [
     storageMethod: "分装到干净盒中，密封后冷藏。",
     roomTempShelfLife: "不建议常温久放",
     coldShelfLife: "1天左右",
+    shelfLife: {
+      defaultDays: 1,
+      roomTempDays: null,
+      coldDays: 1,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，避免串味和污染。",
     waterAdvice: "避免用沾生水的餐具反复夹取。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1493,6 +2039,13 @@ const foods = [
     storageMethod: "放凉后装干净容器密封冷藏。",
     roomTempShelfLife: "不建议常温久放",
     coldShelfLife: "当天尽快喝完",
+    shelfLife: {
+      defaultDays: 1,
+      roomTempDays: null,
+      coldDays: 1,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，避免污染和串味。",
     waterAdvice: "容器要干净，避免混入生水。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1512,6 +2065,13 @@ const foods = [
     storageMethod: "分装到干净盒中，密封冷藏。",
     roomTempShelfLife: "不建议常温久放",
     coldShelfLife: "1-2天",
+    shelfLife: {
+      defaultDays: 2,
+      roomTempDays: null,
+      coldDays: 2,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，避免串味和污染。",
     waterAdvice: "夹取时用干净餐具，避免反复污染。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
@@ -1531,6 +2091,13 @@ const foods = [
     storageMethod: "密封分装，短期冷藏，超过一天建议冷冻。",
     roomTempShelfLife: "不建议常温久放",
     coldShelfLife: "当天尽快用",
+    shelfLife: {
+      defaultDays: 1,
+      roomTempDays: null,
+      coldDays: 1,
+      bestStorage: "cold",
+      warningDays: 1
+    },
     sealedAdvice: "必须密封，避免污染和串味。",
     waterAdvice: "避免接触生水，处理后及时清洁容器。",
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
