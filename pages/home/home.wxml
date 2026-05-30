@@ -1,6 +1,6 @@
 <view class="page home-page">
   <view class="hero card">
-    <view class="brand">鲜存记 · 蔬果怎么放</view>
+    <view class="brand">鲜存记</view>
     <view class="slogan">查怎么存，记别放坏</view>
   </view>
 
@@ -8,30 +8,44 @@
     <text class="search-placeholder">搜索蔬菜、水果怎么保存</text>
   </view>
 
-  <view class="quick-section">
-    <view class="section-title">常用入口</view>
-    <view class="quick-grid">
+  <view wx:if="{{categoryEntries.length}}" class="category-entry-section">
+    <view class="section-title">按分类找</view>
+    <view class="category-entry-grid">
       <view
-        wx:for="{{quickEntries}}"
-        wx:key="tag"
-        class="quick-item"
-        data-tag="{{item.tag}}"
-        bindtap="goToTag"
+        wx:for="{{categoryEntries}}"
+        wx:key="id"
+        class="category-entry-item"
+        data-id="{{item.id}}"
+        bindtap="goToCategory"
       >
-        {{item.name}}
+        <view class="category-entry-icon" style="background: {{item.color}};">{{item.icon}}</view>
+        <view class="category-entry-name">{{item.name}}</view>
       </view>
     </view>
   </view>
 
-  <view wx:if="{{recommendFood}}" class="recommend-section">
-    <view class="section-title">今日推荐</view>
-    <view class="recommend-card card" data-id="{{recommendFood.id}}" bindtap="goToDetail">
-      <view class="recommend-label">今天先看看</view>
-      <view class="recommend-name">{{recommendFood.name}}</view>
-      <view class="recommend-summary">{{recommendFood.summary}}</view>
-      <view class="tag-row">
-        <view wx:for="{{recommendFood.visibleTags}}" wx:for-item="tag" wx:key="*this" class="tag">{{tag}}</view>
+  <view class="quick-section">
+    <view class="section-title">保鲜专题</view>
+    <scroll-view class="quick-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="quick-row">
+        <view
+          wx:for="{{quickEntries}}"
+          wx:key="tag"
+          class="quick-item"
+          data-tag="{{item.tag}}"
+          bindtap="goToTag"
+        >
+          {{item.name}}
+        </view>
       </view>
+    </scroll-view>
+  </view>
+
+  <view wx:if="{{todayTip}}" class="tip-section">
+    <view class="section-title">今日小贴士</view>
+    <view class="tip-card card">
+      <view class="tip-label">保鲜小知识</view>
+      <view class="tip-text">{{todayTip}}</view>
     </view>
   </view>
 

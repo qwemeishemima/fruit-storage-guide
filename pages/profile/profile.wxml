@@ -1,7 +1,49 @@
 <view class="page profile-page">
-  <view class="profile-card card">
+  <view class="profile-hero card">
     <view class="brand">鲜存记</view>
-    <view class="description">鲜存记是一款面向家庭用户的蔬果保存工具，帮你快速查询怎么存、能放多久，记录食材保鲜期，提醒别放坏。</view>
-    <view class="version">MVP 版本</view>
+    <view class="slogan">查怎么存，记别放坏</view>
+    <view class="hero-desc">一个帮你记录食材保鲜期的小工具</view>
+  </view>
+
+  <view class="overview-card card">
+    <view class="section-title">本地数据概览</view>
+    <view class="overview-grid">
+      <view class="overview-item">
+        <view class="overview-number">{{overview.myFoodCount}}</view>
+        <view class="overview-label">我的食材</view>
+      </view>
+      <view class="overview-item attention">
+        <view class="overview-number">{{overview.attentionCount}}</view>
+        <view class="overview-label">尽快吃</view>
+      </view>
+      <view class="overview-item">
+        <view class="overview-number">{{overview.foodCount}}</view>
+        <view class="overview-label">已收录</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="info-card card">
+    <view class="section-title">如何使用鲜存记</view>
+    <view class="step-list">
+      <view wx:for="{{usageSteps}}" wx:key="order" class="step-item">
+        <view class="step-index">{{item.order}}</view>
+        <view class="step-text">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="notice-card card">
+    <view class="notice-title">数据说明</view>
+    <view class="notice-text">保鲜时间为家庭日常参考，实际会受食材新鲜程度、温度、湿度和包装方式影响。</view>
+  </view>
+
+  <view class="info-card card">
+    <view class="section-title">关于鲜存记</view>
+    <view class="about-text">鲜存记是一款蔬果保存小工具，帮助你快速查询食材怎么放，并记录家里的食材，减少浪费。</view>
+  </view>
+
+  <view class="danger-area">
+    <button class="clear-button" bindtap="clearMyFoods">清空我的食材</button>
   </view>
 </view>

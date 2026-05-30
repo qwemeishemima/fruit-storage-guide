@@ -38,7 +38,7 @@ const categories = [
     id: "allium",
     name: "葱姜蒜类",
     desc: "调味类食材，多数需要干燥、通风保存。",
-    icon: "葱",
+    icon: "辛",
     color: "#eef3e9"
   },
   {

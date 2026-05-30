@@ -5,12 +5,27 @@ function padNumber(value) {
 }
 
 function getTodayText() {
-  var now = new Date()
-  var year = now.getFullYear()
-  var month = padNumber(now.getMonth() + 1)
-  var day = padNumber(now.getDate())
+  return formatDateText(new Date())
+}
+
+function formatDateText(date) {
+  var year = date.getFullYear()
+  var month = padNumber(date.getMonth() + 1)
+  var day = padNumber(date.getDate())
 
   return year + "-" + month + "-" + day
+}
+
+function resolveAddedAt(options) {
+  if (typeof options === "string" && options) {
+    return options
+  }
+
+  if (options && typeof options.addedAt === "string" && options.addedAt) {
+    return options.addedAt
+  }
+
+  return getTodayText()
 }
 
 function parseDateText(dateText) {
@@ -103,7 +118,8 @@ function getPantryFoodStatus(record, food) {
   if (storageDays === null || !addedDate) {
     return {
       type: "unknown",
-      text: "留意状态"
+      text: "留意状态",
+      remainingDays: null
     }
   }
 
@@ -113,28 +129,56 @@ function getPantryFoodStatus(record, food) {
   if (remainingDays < 0) {
     return {
       type: "expired",
-      text: "可能不新鲜"
+      text: "可能不新鲜",
+      remainingDays: remainingDays
     }
   }
 
   if (remainingDays === 0) {
     return {
       type: "soon",
-      text: "今天最好吃掉"
+      text: "今天最好吃掉",
+      remainingDays: remainingDays
     }
   }
 
   if (remainingDays <= warningDays) {
     return {
       type: "soon",
-      text: "尽快吃"
+      text: "尽快吃",
+      remainingDays: remainingDays
     }
   }
 
   return {
     type: "fresh",
-    text: "新鲜"
+    text: "新鲜",
+    remainingDays: remainingDays
   }
+}
+
+function getStatusPriority(status) {
+  if (!status) {
+    return 4
+  }
+
+  if (status.type === "expired") {
+    return 0
+  }
+
+  if (status.type === "soon" && status.remainingDays === 0) {
+    return 1
+  }
+
+  if (status.type === "soon") {
+    return 2
+  }
+
+  if (status.type === "fresh") {
+    return 3
+  }
+
+  return 4
 }
 
 function getMyFoods() {
@@ -160,7 +204,7 @@ function hasMyFood(foodId) {
   return false
 }
 
-function addMyFood(food) {
+function addMyFood(food, options) {
   var records
   var record
   var nextRecords
@@ -188,7 +232,7 @@ function addMyFood(food) {
     recordId: food.id + "_" + Date.now(),
     foodId: food.id,
     name: food.name,
-    addedAt: getTodayText()
+    addedAt: resolveAddedAt(options)
   }
 
   nextRecords = [record]
@@ -221,11 +265,19 @@ function removeMyFood(recordId) {
   return nextRecords
 }
 
+function clearMyFoods() {
+  saveMyFoods([])
+
+  return []
+}
+
 module.exports = {
   getMyFoods: getMyFoods,
   addMyFood: addMyFood,
   removeMyFood: removeMyFood,
+  clearMyFoods: clearMyFoods,
   hasMyFood: hasMyFood,
   parseShelfLifeDays: parseShelfLifeDays,
-  getPantryFoodStatus: getPantryFoodStatus
+  getPantryFoodStatus: getPantryFoodStatus,
+  getStatusPriority: getStatusPriority
 }

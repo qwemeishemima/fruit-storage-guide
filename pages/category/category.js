@@ -46,11 +46,19 @@ Page({
     hasFoods: false
   },
 
-  onLoad: function () {
+  onLoad: function (options) {
     var firstCategory = categories[0]
+    var activeCategoryId = options && options.categoryId ? decodeURIComponent(options.categoryId) : ""
 
     if (!firstCategory) {
       return
+    }
+
+    for (var i = 0; i < categories.length; i += 1) {
+      if (categories[i].id === activeCategoryId) {
+        this.setActiveCategory(activeCategoryId)
+        return
+      }
     }
 
     this.setActiveCategory(firstCategory.id)

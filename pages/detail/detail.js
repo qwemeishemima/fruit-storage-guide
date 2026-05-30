@@ -1,6 +1,21 @@
 var foodUtils = require("../../utils/food")
 var pantryUtils = require("../../utils/pantry")
 
+var purchaseTimeOptions = ["今天买的", "昨天买的", "前几天买的"]
+var purchaseTimeDayOffsets = [0, 1, 3]
+
+function padNumber(value) {
+  return value < 10 ? "0" + value : String(value)
+}
+
+function getDateTextByOffset(dayOffset) {
+  var date = new Date()
+
+  date.setDate(date.getDate() - dayOffset)
+
+  return date.getFullYear() + "-" + padNumber(date.getMonth() + 1) + "-" + padNumber(date.getDate())
+}
+
 Page({
   data: {
     food: null,
@@ -76,17 +91,34 @@ Page({
       return
     }
 
-    this.addToPantry()
+    this.showPurchaseTimePicker()
   },
 
-  addToPantry: function () {
+  showPurchaseTimePicker: function () {
+    var that = this
+
+    wx.showActionSheet({
+      alertText: "什么时候买的？",
+      itemList: purchaseTimeOptions,
+      success: function (res) {
+        var dayOffset = purchaseTimeDayOffsets[res.tapIndex]
+
+        that.addToPantry(getDateTextByOffset(dayOffset || 0))
+      },
+      fail: function () {}
+    })
+  },
+
+  addToPantry: function (addedAt) {
     var result
 
     if (!this.data.food) {
       return
     }
 
-    result = pantryUtils.addMyFood(this.data.food)
+    result = pantryUtils.addMyFood(this.data.food, {
+      addedAt: addedAt
+    })
 
     if (!result.added && result.reason === "exists") {
       wx.showToast({

@@ -35,62 +35,119 @@
   color: #9aa59a;
 }
 
+.category-entry-section {
+  margin-top: 32rpx;
+}
+
+.category-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14rpx;
+}
+
+.category-entry-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+  padding: 16rpx 6rpx;
+  border: 1rpx solid #edf2e8;
+  border-radius: 20rpx;
+  background: #ffffff;
+}
+
+.category-entry-item:active {
+  background: #f3f8f1;
+}
+
+.category-entry-icon {
+  display: flex;
+  width: 64rpx;
+  height: 64rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #315d3c;
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: inset 0 0 0 1rpx rgba(63, 143, 90, 0.08);
+}
+
+.category-entry-name {
+  max-width: 100%;
+  overflow: hidden;
+  color: #243126;
+  font-size: 24rpx;
+  font-weight: 600;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .quick-section {
   margin-top: 36rpx;
 }
 
-.quick-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20rpx;
+.quick-scroll {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.quick-row {
+  display: inline-flex;
+  gap: 16rpx;
+  padding-bottom: 2rpx;
 }
 
 .quick-item {
   box-sizing: border-box;
-  min-width: 200rpx;
-  padding: 22rpx 24rpx;
-  border-radius: 20rpx;
-  background: #eaf5e9;
+  flex: 0 0 auto;
+  padding: 14rpx 24rpx;
+  border: 2rpx solid #e2eadc;
+  border-radius: 999rpx;
+  background: #f6f4ea;
   color: #315d3c;
-  font-size: 28rpx;
+  font-size: 26rpx;
+  font-weight: 600;
   text-align: center;
+  white-space: nowrap;
 }
 
 .quick-item:active {
-  background: #dceddc;
+  background: #ece8d8;
 }
 
-.recommend-section,
+.tip-section,
 .common-section {
   margin-top: 36rpx;
 }
 
-.recommend-card {
-  padding: 32rpx 30rpx;
+.tip-card {
+  padding: 24rpx 28rpx;
+  border-color: #e9eadf;
+  background: #fffdf4;
 }
 
-.recommend-card:active,
 .common-card:active {
   background: #f8fbf5;
 }
 
-.recommend-label {
-  color: #7f8a7b;
-  font-size: 24rpx;
-}
-
-.recommend-name {
-  margin-top: 8rpx;
-  color: #243126;
-  font-size: 40rpx;
-  font-weight: 800;
-}
-
-.recommend-summary {
-  margin-top: 14rpx;
+.tip-label {
+  display: inline-flex;
+  padding: 6rpx 14rpx;
+  border-radius: 999rpx;
+  background: #eaf5e9;
   color: #315d3c;
-  font-size: 29rpx;
+  font-size: 22rpx;
   font-weight: 600;
+}
+
+.tip-text {
+  margin-top: 14rpx;
+  color: #4a584c;
+  font-size: 28rpx;
   line-height: 1.55;
 }
 

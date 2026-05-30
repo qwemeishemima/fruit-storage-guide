@@ -12,8 +12,22 @@ function buildPantryItem(record) {
     addedAt: record.addedAt,
     summary: food ? food.summary : "暂无保存结论",
     statusText: status.text,
-    statusType: status.type
+    statusType: status.type,
+    statusPriority: pantryUtils.getStatusPriority(status),
+    remainingDays: status.remainingDays
   }
+}
+
+function comparePantryItems(a, b) {
+  if (a.statusPriority !== b.statusPriority) {
+    return a.statusPriority - b.statusPriority
+  }
+
+  if (a.remainingDays !== null && b.remainingDays !== null && a.remainingDays !== b.remainingDays) {
+    return a.remainingDays - b.remainingDays
+  }
+
+  return String(b.addedAt || "").localeCompare(String(a.addedAt || ""))
 }
 
 function buildPantryItems(records) {
@@ -22,6 +36,8 @@ function buildPantryItems(records) {
   for (var i = 0; i < records.length; i += 1) {
     list.push(buildPantryItem(records[i]))
   }
+
+  list.sort(comparePantryItems)
 
   return list
 }
@@ -58,7 +74,7 @@ Page({
   },
 
   goToAddFood: function () {
-    wx.switchTab({
+    wx.navigateTo({
       url: "/pages/category/category"
     })
   },

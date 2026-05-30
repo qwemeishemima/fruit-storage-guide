@@ -7,15 +7,20 @@
 
   <view wx:if="{{hasMyFoods}}" class="pantry-content">
     <view class="section-title">我的食材</view>
+    <view class="pantry-note">快过期的食材会优先显示，记得及时吃掉。</view>
     <view class="pantry-list">
-      <view wx:for="{{myFoods}}" wx:key="recordId" class="pantry-card card">
-        <view class="pantry-main" data-id="{{item.foodId}}" bindtap="goToDetail">
-          <view class="pantry-name">{{item.name}}</view>
-          <view class="added-date">添加日期：{{item.addedAt}}</view>
-          <view class="status-pill {{item.statusType}}">{{item.statusText}}</view>
+      <view wx:for="{{myFoods}}" wx:key="recordId" class="pantry-card card" data-id="{{item.foodId}}" bindtap="goToDetail">
+        <view class="pantry-main">
+          <view class="pantry-header">
+            <view class="pantry-name">{{item.name}}</view>
+            <view class="status-pill {{item.statusType}}">{{item.statusText}}</view>
+          </view>
           <view class="pantry-summary">{{item.summary}}</view>
         </view>
-        <button class="delete-button" data-record-id="{{item.recordId}}" catchtap="deleteRecord">删除</button>
+        <view class="pantry-footer">
+          <view class="added-date">添加日期：{{item.addedAt}}</view>
+          <button class="delete-button" data-record-id="{{item.recordId}}" catchtap="deleteRecord">删除</button>
+        </view>
       </view>
     </view>
   </view>
