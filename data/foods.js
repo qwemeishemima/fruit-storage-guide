@@ -1512,7 +1512,7 @@ const foods = [
     name: "豌豆",
     aliases: ["青豆"],
     keywords: ["鲜豌豆", "豆类"],
-    category: "bean",
+    category: "melon",
     image: "",
     summary: "鲜豌豆适合冷藏，剥开后尽快吃。",
     fridgeAdvice: "必须冷藏，常温容易变老。",
@@ -1531,14 +1531,14 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["剥好的豌豆更不耐放。", "变干后口感会下降。"],
     afterPurchaseAdvice: "带荚冷藏，烹调前再剥。",
-    tags: ["蔬菜", "豆制品", "必须冷藏", "容易坏", "怕水"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "edamame",
     name: "毛豆",
     aliases: [],
     keywords: ["鲜毛豆", "豆类"],
-    category: "bean",
+    category: "melon",
     image: "",
     summary: "毛豆要冷藏，买回后尽量两三天内吃。",
     fridgeAdvice: "必须冷藏，常温容易变老。",
@@ -1557,7 +1557,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["豆荚发黄说明新鲜度下降。", "剥好的毛豆要更快吃完。"],
     afterPurchaseAdvice: "带荚冷藏，烹调前再清洗。",
-    tags: ["蔬菜", "豆制品", "必须冷藏", "容易坏"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "容易坏"]
   },
   {
     id: "crown_daisy",
