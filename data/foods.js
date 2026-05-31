@@ -23,7 +23,7 @@ const foods = [
     ethyleneAdvice: "会释放乙烯，尽量远离乙烯敏感食材。",
     tips: ["想慢一点成熟，可单独放置。", "表皮变黑不一定代表果肉变坏。"],
     afterPurchaseAdvice: "买回后放阴凉处，吃前再剥皮处理。",
-    tags: ["不能放冰箱", "释放乙烯", "怕水", "水果"]
+    tags: ["水果", "不能放冰箱", "怕水"]
   },
   {
     id: "apple",
@@ -49,7 +49,7 @@ const foods = [
     ethyleneAdvice: "会释放乙烯，容易影响叶菜和部分水果。",
     tips: ["有碰伤的苹果要先吃。", "不要和叶菜长期放在一起。"],
     afterPurchaseAdvice: "挑出破损果，完整果冷藏保存。",
-    tags: ["必须冷藏", "释放乙烯", "水果"]
+    tags: ["水果", "必须冷藏"]
   },
   {
     id: "strawberry",
@@ -75,7 +75,7 @@ const foods = [
     ethyleneAdvice: "对乙烯较敏感，尽量远离苹果、香蕉。",
     tips: ["有软烂果要及时挑出。", "清洗后要尽快吃完。"],
     afterPurchaseAdvice: "先挑出压坏或发霉的，吃前再洗。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "水果"]
+    tags: ["水果", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "grape",
@@ -101,7 +101,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，避免和强释放乙烯的水果久放。",
     tips: ["掉粒或破皮的先吃。", "洗后要沥干并尽快食用。"],
     afterPurchaseAdvice: "整串冷藏，食用前剪下清洗。",
-    tags: ["必须冷藏", "怕水", "乙烯敏感", "水果"]
+    tags: ["水果", "必须冷藏", "怕水"]
   },
   {
     id: "orange",
@@ -127,7 +127,7 @@ const foods = [
     ethyleneAdvice: "对乙烯影响不算敏感，一般分开放更稳妥。",
     tips: ["表皮有霉点要及时处理。", "不要长时间放在潮湿袋中。"],
     afterPurchaseAdvice: "擦干表面水分，按食用时间选择常温或冷藏。",
-    tags: ["短期冷藏", "需干燥", "水果"]
+    tags: ["水果", "可冷藏", "怕水"]
   },
   {
     id: "watermelon",
@@ -153,7 +153,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切开后尽快吃完。", "冷藏前不要让切面长时间暴露。"],
     afterPurchaseAdvice: "整瓜放阴凉处，切开后及时冷藏。",
-    tags: ["短期冷藏", "容易坏", "水果"]
+    tags: ["水果", "可冷藏", "容易坏"]
   },
   {
     id: "pear",
@@ -179,7 +179,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和释放乙烯水果分开。",
     tips: ["有碰伤的梨要先吃。", "熟软后尽快食用。"],
     afterPurchaseAdvice: "挑出碰伤果，完整果装袋冷藏。",
-    tags: ["必须冷藏", "乙烯敏感", "水果"]
+    tags: ["水果", "必须冷藏"]
   },
   {
     id: "peach",
@@ -205,7 +205,7 @@ const foods = [
     ethyleneAdvice: "会释放乙烯，也容易被乙烯催熟。",
     tips: ["桃子怕压，尽量单层放。", "软桃要优先吃。"],
     afterPurchaseAdvice: "按成熟度分开，熟的先吃或冷藏。",
-    tags: ["短期冷藏", "容易坏", "释放乙烯", "怕水", "水果"]
+    tags: ["水果", "可冷藏", "容易坏", "怕水"]
   },
   {
     id: "lychee",
@@ -231,7 +231,7 @@ const foods = [
     ethyleneAdvice: "一般建议与释放乙烯水果分开。",
     tips: ["果壳发黑说明新鲜度下降。", "不建议长时间常温堆放。"],
     afterPurchaseAdvice: "挑出破壳果，完整果冷藏。",
-    tags: ["必须冷藏", "容易坏", "水果"]
+    tags: ["水果", "必须冷藏", "容易坏"]
   },
   {
     id: "mango",
@@ -257,7 +257,7 @@ const foods = [
     ethyleneAdvice: "会释放乙烯，也会被乙烯加快催熟。",
     tips: ["变软有香味后尽快吃。", "冷藏过久口感可能变差。"],
     afterPurchaseAdvice: "按成熟度分开，熟的先吃。",
-    tags: ["短期冷藏", "释放乙烯", "水果"]
+    tags: ["水果", "可冷藏"]
   },
   {
     id: "dragon_fruit",
@@ -283,7 +283,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切开后尽快吃完。", "表皮软烂要及时处理。"],
     afterPurchaseAdvice: "完整果按食用时间选择常温或冷藏。",
-    tags: ["短期冷藏", "水果"]
+    tags: ["水果", "可冷藏"]
   },
   {
     id: "blueberry",
@@ -309,7 +309,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和苹果、香蕉分开。",
     tips: ["发霉果要及时挑出。", "洗后要尽快吃。"],
     afterPurchaseAdvice: "挑出破损果，直接冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "水果"]
+    tags: ["水果", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "cherry",
@@ -335,7 +335,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和释放乙烯水果分开。",
     tips: ["掉梗或破皮的先吃。", "有软烂果要挑出。"],
     afterPurchaseAdvice: "保留果梗冷藏，食用前再洗。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "水果"]
+    tags: ["水果", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "kiwi",
@@ -361,7 +361,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，也可被苹果催熟。",
     tips: ["想快点变软可和苹果短放。", "软了以后要尽快吃。"],
     afterPurchaseAdvice: "按软硬分开，熟果先吃或冷藏。",
-    tags: ["短期冷藏", "乙烯敏感", "水果"]
+    tags: ["水果", "可冷藏"]
   },
   {
     id: "lemon",
@@ -387,7 +387,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切片后尽快用完。", "表皮发霉不要继续存放。"],
     afterPurchaseAdvice: "擦干表皮，装袋冷藏。",
-    tags: ["必须冷藏", "需干燥", "水果"]
+    tags: ["水果", "必须冷藏", "怕水"]
   },
   {
     id: "pomelo",
@@ -413,7 +413,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["剥开的果肉容易变干。", "完整果避免潮湿环境。"],
     afterPurchaseAdvice: "完整果阴凉处保存，剥开后及时冷藏。",
-    tags: ["短期冷藏", "需干燥", "水果"]
+    tags: ["水果", "可冷藏", "怕水"]
   },
   {
     id: "pineapple",
@@ -439,7 +439,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切块后尽快吃完。", "有酒味或发黏不要食用。"],
     afterPurchaseAdvice: "按成熟度决定是否当天处理，切开后冷藏。",
-    tags: ["短期冷藏", "容易坏", "水果"]
+    tags: ["水果", "可冷藏", "容易坏"]
   },
   {
     id: "papaya",
@@ -465,7 +465,7 @@ const foods = [
     ethyleneAdvice: "会释放乙烯，也容易被乙烯催熟。",
     tips: ["变软后尽快吃。", "切开后不宜久放。"],
     afterPurchaseAdvice: "按成熟度分开，熟果优先吃。",
-    tags: ["短期冷藏", "释放乙烯", "水果"]
+    tags: ["水果", "可冷藏"]
   },
   {
     id: "durian",
@@ -491,7 +491,7 @@ const foods = [
     ethyleneAdvice: "成熟后气味明显，建议单独保存。",
     tips: ["开壳后越快吃越好。", "冷藏也要密封严实。"],
     afterPurchaseAdvice: "开壳取肉后马上密封冷藏。",
-    tags: ["必须冷藏", "容易坏", "水果"]
+    tags: ["水果", "必须冷藏", "容易坏"]
   },
   {
     id: "hami_melon",
@@ -517,7 +517,7 @@ const foods = [
     ethyleneAdvice: "成熟瓜会释放一定乙烯，建议和叶菜分开。",
     tips: ["切开后尽快吃完。", "切面不要长时间暴露。"],
     afterPurchaseAdvice: "完整果阴凉保存，切开后立即冷藏。",
-    tags: ["短期冷藏", "容易坏", "释放乙烯", "水果"]
+    tags: ["水果", "可冷藏", "容易坏"]
   },
   {
     id: "mangosteen",
@@ -543,7 +543,7 @@ const foods = [
     ethyleneAdvice: "一般建议与释放乙烯水果分开。",
     tips: ["果壳太硬说明新鲜度下降。", "受压破壳的先吃。"],
     afterPurchaseAdvice: "挑出破损果，完整果冷藏。",
-    tags: ["必须冷藏", "容易坏", "水果"]
+    tags: ["水果", "必须冷藏", "容易坏"]
   },
   {
     id: "plum",
@@ -569,7 +569,7 @@ const foods = [
     ethyleneAdvice: "会释放乙烯，也容易被乙烯催熟。",
     tips: ["软熟的先吃。", "破皮果要及时处理。"],
     afterPurchaseAdvice: "按成熟度分开放，熟果冷藏。",
-    tags: ["短期冷藏", "释放乙烯", "怕水", "水果"]
+    tags: ["水果", "可冷藏", "怕水"]
   },
   {
     id: "spinach",
@@ -595,7 +595,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，远离苹果、香蕉。",
     tips: ["叶片发黄要及时挑出。", "清洗后尽量当天吃完。"],
     afterPurchaseAdvice: "挑掉黄叶和烂叶，擦干明显水汽后冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "lettuce",
@@ -621,7 +621,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，避免和苹果、香蕉久放。",
     tips: ["外层叶子可保护内层。", "清洗后要沥干再短放。"],
     afterPurchaseAdvice: "去掉明显坏叶，干爽冷藏。",
-    tags: ["必须冷藏", "怕水", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "怕水"]
   },
   {
     id: "bok_choy",
@@ -647,7 +647,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，避免和释放乙烯的水果同放。",
     tips: ["叶片发黄说明新鲜度下降。", "根部潮湿时可先擦干。"],
     afterPurchaseAdvice: "摘掉烂叶，保持干爽后冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "cilantro",
@@ -673,7 +673,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，尽量和水果分开。",
     tips: ["黄叶要及时摘掉。", "也可插水短期冷藏，但要勤换水。"],
     afterPurchaseAdvice: "去掉烂叶，根部保湿后冷藏。",
-    tags: ["必须冷藏", "容易坏", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏"]
   },
   {
     id: "potato",
@@ -699,7 +699,7 @@ const foods = [
     ethyleneAdvice: "对乙烯较敏感，避免和苹果、香蕉同放。",
     tips: ["发芽或发绿的部位要谨慎处理。", "不要放在阳光直射处。"],
     afterPurchaseAdvice: "从塑料袋中取出，放入透气袋或篮子。",
-    tags: ["不能放冰箱", "需干燥", "怕水", "乙烯敏感", "蔬菜"]
+    tags: ["蔬菜", "根茎", "不能放冰箱", "怕水"]
   },
   {
     id: "sweet_potato",
@@ -725,7 +725,7 @@ const foods = [
     ethyleneAdvice: "一般建议与释放乙烯水果分开放。",
     tips: ["有伤口的红薯要先吃。", "受潮后更容易坏。"],
     afterPurchaseAdvice: "摊开放置，保持干燥通风。",
-    tags: ["不能放冰箱", "需干燥", "怕水", "蔬菜"]
+    tags: ["蔬菜", "根茎", "不能放冰箱", "怕水"]
   },
   {
     id: "carrot",
@@ -751,7 +751,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，久放建议与苹果分开。",
     tips: ["带叶会消耗根部水分。", "表皮变软说明失水。"],
     afterPurchaseAdvice: "如果带叶，先切掉叶子再冷藏。",
-    tags: ["必须冷藏", "乙烯敏感", "蔬菜"]
+    tags: ["蔬菜", "根茎", "必须冷藏"]
   },
   {
     id: "white_radish",
@@ -777,7 +777,7 @@ const foods = [
     ethyleneAdvice: "一般建议与释放乙烯水果分开放。",
     tips: ["切开后容易串味，要包好。", "叶子如果还在要先去掉。"],
     afterPurchaseAdvice: "去叶后装袋冷藏，切开后尽快用完。",
-    tags: ["必须冷藏", "需干燥", "蔬菜"]
+    tags: ["蔬菜", "根茎", "必须冷藏", "怕水"]
   },
   {
     id: "cucumber",
@@ -803,7 +803,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，避免和苹果、香蕉同放。",
     tips: ["出现水渍状软斑说明不新鲜。", "不要贴近冰箱出风口。"],
     afterPurchaseAdvice: "擦干表面水汽，单独装袋冷藏。",
-    tags: ["短期冷藏", "怕水", "乙烯敏感", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "可冷藏", "怕水"]
   },
   {
     id: "tomato",
@@ -829,7 +829,7 @@ const foods = [
     ethyleneAdvice: "会释放乙烯，也会受乙烯影响加快成熟。",
     tips: ["蒂部朝下可减少水分流失。", "冷藏后口感可能略受影响。"],
     afterPurchaseAdvice: "按成熟度分开放，熟的先吃。",
-    tags: ["短期冷藏", "释放乙烯", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "可冷藏", "怕水"]
   },
   {
     id: "eggplant",
@@ -855,7 +855,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，避免和苹果、香蕉同放。",
     tips: ["表皮皱缩说明失水。", "切开后容易氧化，要尽快烹调。"],
     afterPurchaseAdvice: "保持完整干爽，尽量两三天内吃完。",
-    tags: ["短期冷藏", "怕水", "乙烯敏感", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "可冷藏", "怕水"]
   },
   {
     id: "green_pepper",
@@ -881,7 +881,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和苹果分开。",
     tips: ["蒂部发软要尽快用。", "切开后需密封冷藏。"],
     afterPurchaseAdvice: "完整青椒擦干后冷藏，切开的尽快用完。",
-    tags: ["必须冷藏", "怕水", "乙烯敏感", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "怕水"]
   },
   {
     id: "shiitake",
@@ -907,7 +907,7 @@ const foods = [
     ethyleneAdvice: "一般建议与强气味和水果分开放。",
     tips: ["表面发黏或异味要丢弃。", "纸袋比塑料袋更不易积水。"],
     afterPurchaseAdvice: "保持干爽，装纸袋冷藏。",
-    tags: ["必须冷藏", "怕水", "需干燥", "蔬菜"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "怕水"]
   },
   {
     id: "enoki",
@@ -933,7 +933,7 @@ const foods = [
     ethyleneAdvice: "一般建议与水果分开放。",
     tips: ["有酸味或发黏不要食用。", "根部变色严重时新鲜度较差。"],
     afterPurchaseAdvice: "直接冷藏，开封后尽快用完。",
-    tags: ["必须冷藏", "容易坏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "garlic",
@@ -959,7 +959,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["剥开的蒜瓣要密封冷藏并尽快用。", "发霉的大蒜不要食用。"],
     afterPurchaseAdvice: "从塑料袋中取出，放透气容器保存。",
-    tags: ["不能放冰箱", "需干燥", "怕水", "蔬菜"]
+    tags: ["蔬菜", "葱姜蒜", "不能放冰箱", "怕水"]
   },
   {
     id: "ginger",
@@ -985,7 +985,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切口发霉要丢弃。", "表面保持干爽更耐放。"],
     afterPurchaseAdvice: "完整保存，使用后把切面包好。",
-    tags: ["需干燥", "怕水", "短期冷藏", "蔬菜"]
+    tags: ["蔬菜", "葱姜蒜", "可冷藏", "怕水"]
   },
   {
     id: "scallion",
@@ -1011,7 +1011,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["黄叶及时去掉。", "也可切葱花冷冻，但首版不展开。"],
     afterPurchaseAdvice: "去掉烂叶，根部保湿后冷藏。",
-    tags: ["必须冷藏", "容易坏", "乙烯敏感", "蔬菜"]
+    tags: ["蔬菜", "葱姜蒜", "必须冷藏", "容易坏"]
   },
   {
     id: "tofu",
@@ -1037,7 +1037,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["有酸味、发黏或胀包不要食用。", "开封后越快吃越好。"],
     afterPurchaseAdvice: "尽快放入冰箱冷藏，开封后用干净容器保存。",
-    tags: ["必须冷藏", "容易坏", "蔬菜"]
+    tags: ["蔬菜", "豆制品", "必须冷藏", "容易坏"]
   },
   {
     id: "broccoli",
@@ -1063,7 +1063,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["花球发黄要尽快吃。", "切开后更容易变干。"],
     afterPurchaseAdvice: "去掉明显坏叶，干爽冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "cauliflower",
@@ -1089,7 +1089,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["花球有黑点要及时处理。", "切小块后不宜久放。"],
     afterPurchaseAdvice: "保持完整干爽，装袋冷藏。",
-    tags: ["必须冷藏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "怕水"]
   },
   {
     id: "chinese_cabbage",
@@ -1115,7 +1115,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，尽量和苹果、香蕉分开。",
     tips: ["外层坏叶要及时去掉。", "切开后先吃切面附近。"],
     afterPurchaseAdvice: "去掉烂叶，整颗冷藏或阴凉处短放。",
-    tags: ["必须冷藏", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏"]
   },
   {
     id: "baby_cabbage",
@@ -1141,7 +1141,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，建议和水果分开。",
     tips: ["叶片发黄要尽快吃。", "开袋后不宜久放。"],
     afterPurchaseAdvice: "保持干爽，装袋冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "cabbage",
@@ -1167,7 +1167,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["外层叶子可保护内层。", "切开后切面容易变干。"],
     afterPurchaseAdvice: "整颗冷藏，切开后尽快吃完。",
-    tags: ["必须冷藏", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏"]
   },
   {
     id: "celery",
@@ -1193,7 +1193,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，建议和苹果、香蕉分开。",
     tips: ["叶子发黄要先摘掉。", "根部干了口感会变差。"],
     afterPurchaseAdvice: "去掉坏叶，包纸装袋冷藏。",
-    tags: ["必须冷藏", "容易坏", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏"]
   },
   {
     id: "chives",
@@ -1219,7 +1219,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["有烂叶要及时挑出。", "买回后尽量早点吃。"],
     afterPurchaseAdvice: "挑掉烂叶，干爽冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "onion",
@@ -1245,7 +1245,7 @@ const foods = [
     ethyleneAdvice: "一般建议与土豆分开保存。",
     tips: ["发芽或发软要尽快处理。", "切开后容易串味。"],
     afterPurchaseAdvice: "从塑料袋中取出，放透气篮中。",
-    tags: ["适合阴凉处", "需干燥", "怕水", "蔬菜"]
+    tags: ["蔬菜", "葱姜蒜", "怕水"]
   },
   {
     id: "garlic_sprout",
@@ -1271,7 +1271,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["变软后口感会变差。", "切段后不宜久放。"],
     afterPurchaseAdvice: "保持整根干爽，装袋冷藏。",
-    tags: ["必须冷藏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "葱姜蒜", "必须冷藏", "怕水"]
   },
   {
     id: "lotus_root",
@@ -1297,7 +1297,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切面发黑要尽快处理。", "带泥莲藕可短期阴凉放。"],
     afterPurchaseAdvice: "完整藕节冷藏，切开后尽快用完。",
-    tags: ["必须冷藏", "需干燥", "蔬菜"]
+    tags: ["蔬菜", "根茎", "必须冷藏", "怕水"]
   },
   {
     id: "pumpkin",
@@ -1323,7 +1323,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切面先用保鲜膜包好。", "发黏或有异味不要食用。"],
     afterPurchaseAdvice: "完整放阴凉处，切开后冷藏。",
-    tags: ["适合阴凉处", "需干燥", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "怕水"]
   },
   {
     id: "winter_melon",
@@ -1349,7 +1349,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["切开后尽快吃完。", "切面发黏要丢弃。"],
     afterPurchaseAdvice: "按食用量切开，剩余部分及时冷藏。",
-    tags: ["短期冷藏", "适合阴凉处", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "可冷藏"]
   },
   {
     id: "loofah",
@@ -1375,7 +1375,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["表皮发黑说明新鲜度下降。", "买回后尽量早点吃。"],
     afterPurchaseAdvice: "保持完整干爽，短期冷藏。",
-    tags: ["短期冷藏", "容易坏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "可冷藏", "容易坏", "怕水"]
   },
   {
     id: "bitter_melon",
@@ -1401,7 +1401,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["变黄后口感会下降。", "切开后要尽快烹调。"],
     afterPurchaseAdvice: "保持完整干爽，冷藏保存。",
-    tags: ["必须冷藏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "怕水"]
   },
   {
     id: "corn",
@@ -1427,7 +1427,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["剥皮后更容易变干。", "甜玉米买回后尽快吃。"],
     afterPurchaseAdvice: "保留外皮冷藏，烹调前再剥。",
-    tags: ["必须冷藏", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏"]
   },
   {
     id: "okra",
@@ -1453,7 +1453,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["发黑或发黏不要食用。", "越嫩越适合尽快吃。"],
     afterPurchaseAdvice: "保持干爽，装袋冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "long_bean",
@@ -1479,7 +1479,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["发软后口感会变差。", "有斑点的先吃。"],
     afterPurchaseAdvice: "保持整根干爽，装袋冷藏。",
-    tags: ["必须冷藏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "怕水"]
   },
   {
     id: "green_bean",
@@ -1505,7 +1505,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["变软或有黑斑要尽快吃。", "清洗后不宜久放。"],
     afterPurchaseAdvice: "挑出坏豆荚，干爽冷藏。",
-    tags: ["必须冷藏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "怕水"]
   },
   {
     id: "pea",
@@ -1531,7 +1531,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["剥好的豌豆更不耐放。", "变干后口感会下降。"],
     afterPurchaseAdvice: "带荚冷藏，烹调前再剥。",
-    tags: ["必须冷藏", "容易坏", "怕水", "蔬菜"]
+    tags: ["蔬菜", "豆制品", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "edamame",
@@ -1557,7 +1557,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["豆荚发黄说明新鲜度下降。", "剥好的毛豆要更快吃完。"],
     afterPurchaseAdvice: "带荚冷藏，烹调前再清洗。",
-    tags: ["必须冷藏", "容易坏", "蔬菜"]
+    tags: ["蔬菜", "豆制品", "必须冷藏", "容易坏"]
   },
   {
     id: "crown_daisy",
@@ -1583,7 +1583,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，建议和水果分开。",
     tips: ["黄叶要及时挑出。", "清洗后尽量当天吃完。"],
     afterPurchaseAdvice: "挑掉坏叶，干爽冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "water_spinach",
@@ -1609,7 +1609,7 @@ const foods = [
     ethyleneAdvice: "对乙烯敏感，建议和水果分开。",
     tips: ["茎叶发软要尽快吃。", "清洗后不宜久放。"],
     afterPurchaseAdvice: "挑掉烂叶，干爽冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "乙烯敏感", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "fennel",
@@ -1635,7 +1635,7 @@ const foods = [
     ethyleneAdvice: "对乙烯有一定敏感性，建议和水果分开。",
     tips: ["叶子发黄要及时挑出。", "香味变淡说明不新鲜。"],
     afterPurchaseAdvice: "保持干爽，装袋冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "蔬菜", "叶菜"]
+    tags: ["蔬菜", "叶菜", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "water_bamboo",
@@ -1661,7 +1661,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["剥壳后更不耐放。", "切开后要尽快烹调。"],
     afterPurchaseAdvice: "保留外壳冷藏，烹调前再处理。",
-    tags: ["必须冷藏", "需干燥", "蔬菜"]
+    tags: ["蔬菜", "瓜茄豆", "必须冷藏", "怕水"]
   },
   {
     id: "king_oyster_mushroom",
@@ -1687,7 +1687,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["表面发黏或有异味不要食用。", "切开后尽快烹调。"],
     afterPurchaseAdvice: "保持完整干爽，冷藏保存。",
-    tags: ["必须冷藏", "怕水", "菌菇"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "怕水"]
   },
   {
     id: "oyster_mushroom",
@@ -1713,7 +1713,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["发黏或发酸不要食用。", "买回后尽量早点吃。"],
     afterPurchaseAdvice: "挑出破损部分，干爽冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "菌菇"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "white_beech_mushroom",
@@ -1739,7 +1739,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["根部变色明显要尽快处理。", "有异味不要食用。"],
     afterPurchaseAdvice: "未开封直接冷藏，开封后尽快用。",
-    tags: ["必须冷藏", "容易坏", "怕水", "菌菇"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "brown_beech_mushroom",
@@ -1765,7 +1765,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["发黏、有酸味不要食用。", "开封后不宜久放。"],
     afterPurchaseAdvice: "保持包装完整，放冰箱冷藏。",
-    tags: ["必须冷藏", "容易坏", "怕水", "菌菇"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "容易坏", "怕水"]
   },
   {
     id: "button_mushroom",
@@ -1791,7 +1791,7 @@ const foods = [
     ethyleneAdvice: "一般建议和水果分开。",
     tips: ["表面变黑不一定坏，但发黏有味不要吃。", "切片后要尽快用。"],
     afterPurchaseAdvice: "保持完整干爽，冷藏保存。",
-    tags: ["必须冷藏", "怕水", "菌菇"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "怕水"]
   },
   {
     id: "wood_ear",
@@ -1817,7 +1817,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["泡发后尽快烹调。", "有异味或发黏不要食用。"],
     afterPurchaseAdvice: "区分鲜木耳和干木耳，按状态保存。",
-    tags: ["必须冷藏", "需密封", "菌菇"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "需要密封"]
   },
   {
     id: "white_fungus",
@@ -1843,7 +1843,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["泡发后不建议久放。", "有异味不要食用。"],
     afterPurchaseAdvice: "鲜银耳及时冷藏，干银耳放干燥处。",
-    tags: ["必须冷藏", "需密封", "菌菇"]
+    tags: ["蔬菜", "菌菇", "必须冷藏", "需要密封"]
   },
   {
     id: "egg",
@@ -1869,7 +1869,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["破壳蛋要尽快处理。", "不要和熟食直接接触。"],
     afterPurchaseAdvice: "检查是否破壳，完整蛋冷藏。",
-    tags: ["必须冷藏", "厨房常用"]
+    tags: ["必须冷藏"]
   },
   {
     id: "milk",
@@ -1895,7 +1895,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["有异味或结块不要饮用。", "离开冰箱太久要谨慎。"],
     afterPurchaseAdvice: "按包装说明保存，开封后及时冷藏。",
-    tags: ["必须冷藏", "容易坏", "需密封", "厨房常用"]
+    tags: ["必须冷藏", "容易坏", "需要密封"]
   },
   {
     id: "yogurt",
@@ -1921,7 +1921,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["胀杯、有异味要谨慎。", "开封后越快吃越好。"],
     afterPurchaseAdvice: "买回后尽快放冰箱冷藏。",
-    tags: ["必须冷藏", "容易坏", "需密封", "厨房常用"]
+    tags: ["必须冷藏", "容易坏", "需要密封"]
   },
   {
     id: "bread",
@@ -1947,7 +1947,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["发霉不要食用。", "冷冻比冷藏更适合久放。"],
     afterPurchaseAdvice: "按食用量分装，短期常温密封。",
-    tags: ["需密封", "需干燥", "厨房常用"]
+    tags: ["怕水", "需要密封"]
   },
   {
     id: "steamed_bun",
@@ -1973,7 +1973,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["有霉点不要食用。", "冷冻前可按份分装。"],
     afterPurchaseAdvice: "吃不完先放凉，再装袋保存。",
-    tags: ["需密封", "厨房常用"]
+    tags: ["需要密封"]
   },
   {
     id: "cooked_rice",
@@ -1999,7 +1999,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["吃前要充分加热。", "有异味或发黏不要食用。"],
     afterPurchaseAdvice: "剩饭尽快分装冷藏，不要在室温放太久。",
-    tags: ["必须冷藏", "需密封", "熟食", "高风险"]
+    tags: ["必须冷藏", "需要密封"]
   },
   {
     id: "leftovers",
@@ -2025,7 +2025,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["吃前充分加热。", "有异味、变黏或变色要丢弃。"],
     afterPurchaseAdvice: "吃不完尽快分装冷藏，不要长时间常温放置。",
-    tags: ["必须冷藏", "容易坏", "需密封", "熟食", "高风险"]
+    tags: ["必须冷藏", "容易坏", "需要密封"]
   },
   {
     id: "soy_milk",
@@ -2051,7 +2051,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["有酸味或胀气不要饮用。", "现做豆浆尽量当天喝完。"],
     afterPurchaseAdvice: "现买或现做后尽快饮用，剩余及时冷藏。",
-    tags: ["必须冷藏", "容易坏", "需密封", "厨房常用", "高风险"]
+    tags: ["必须冷藏", "容易坏", "需要密封"]
   },
   {
     id: "cooked_meat",
@@ -2077,7 +2077,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["吃前充分加热。", "有异味或发黏不要食用。"],
     afterPurchaseAdvice: "买回或做熟后尽快冷藏，按份分装。",
-    tags: ["必须冷藏", "容易坏", "需密封", "熟食", "高风险"]
+    tags: ["必须冷藏", "容易坏", "需要密封"]
   },
   {
     id: "ground_meat",
@@ -2103,7 +2103,7 @@ const foods = [
     ethyleneAdvice: "一般不作为乙烯重点食材处理。",
     tips: ["颜色或气味异常不要食用。", "分装薄一些更容易冷冻和解冻。"],
     afterPurchaseAdvice: "买回后立刻分装，尽快冷藏或冷冻。",
-    tags: ["必须冷藏", "容易坏", "需密封", "高风险"]
+    tags: ["必须冷藏", "容易坏", "需要密封"]
   },
   {
     id: "apricot",
@@ -2772,7 +2772,7 @@ const foods = [
     ethyleneAdvice: "对乙烯不敏感。",
     tips: ["干腐竹受潮易发霉。", "泡发后有酸味不要食用。", "泡发量按当次食用量控制。"],
     afterPurchaseAdvice: "干品密封防潮保存，泡发后冷藏。",
-    tags: ["豆制品", "需要密封", "怕水"],
+    tags: ["豆制品", "怕水", "需要密封"],
     shelfLife: {
       defaultDays: 120,
       roomTempDays: 180,
