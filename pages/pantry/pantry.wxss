@@ -108,6 +108,45 @@
   line-height: 1.5;
 }
 
+.pantry-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+.pantry-group {
+  width: 100%;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 14rpx;
+  padding: 0 4rpx;
+}
+
+.group-title {
+  color: #384a3b;
+  font-size: 29rpx;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.group-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36rpx;
+  height: 36rpx;
+  padding: 0 12rpx;
+  border-radius: 999rpx;
+  background: #eef3e9;
+  color: #59685b;
+  font-size: 22rpx;
+  line-height: 1;
+}
+
 .pantry-list {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,8 @@
 var foodUtils = require("../../utils/food")
 var pantryUtils = require("../../utils/pantry")
 
-var purchaseTimeOptions = ["今天买的", "昨天买的", "前几天买的"]
-var purchaseTimeDayOffsets = [0, 1, 3]
+var purchaseTimeOptions = ["今天买的", "昨天买的", "前天买的"]
+var purchaseTimeDayOffsets = [0, 1, 2]
 
 function hasDisplayValue(value) {
   if (Array.isArray(value)) {

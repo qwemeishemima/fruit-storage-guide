@@ -1,6 +1,51 @@
 var foodUtils = require("../../utils/food")
 var pantryUtils = require("../../utils/pantry")
 
+function parseDateText(dateText) {
+  var date
+
+  if (!dateText) {
+    return null
+  }
+
+  date = new Date(dateText + "T00:00:00")
+
+  return isNaN(date.getTime()) ? null : date
+}
+
+function getDaysBetween(startDate, endDate) {
+  var oneDay = 24 * 60 * 60 * 1000
+  var startTime = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()).getTime()
+  var endTime = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate()).getTime()
+
+  return Math.max(0, Math.floor((endTime - startTime) / oneDay))
+}
+
+function getPurchaseTimeText(addedAt) {
+  var addedDate = parseDateText(addedAt)
+  var days
+
+  if (!addedDate) {
+    return addedAt || "时间未知"
+  }
+
+  days = getDaysBetween(addedDate, new Date())
+
+  if (days === 0) {
+    return "今天买的"
+  }
+
+  if (days === 1) {
+    return "昨天买的"
+  }
+
+  if (days === 2) {
+    return "前天买的"
+  }
+
+  return "前几天买的"
+}
+
 function buildPantryItem(record) {
   var food = foodUtils.getFoodById(record.foodId)
   var status = pantryUtils.getPantryFoodStatus(record, food)
@@ -10,6 +55,7 @@ function buildPantryItem(record) {
     foodId: record.foodId,
     name: record.name,
     addedAt: record.addedAt,
+    purchaseTimeText: getPurchaseTimeText(record.addedAt),
     statusText: status.text,
     statusType: status.type,
     statusPriority: pantryUtils.getStatusPriority(status),
@@ -66,6 +112,59 @@ function buildPantryItems(records) {
   return list
 }
 
+function buildFoodGroups(myFoods) {
+  var groupConfigs = [
+    {
+      key: "soon",
+      title: "尽快吃掉",
+      statusTypes: ["soon"]
+    },
+    {
+      key: "fresh",
+      title: "还算新鲜",
+      statusTypes: ["fresh"]
+    },
+    {
+      key: "expired",
+      title: "可能不新鲜",
+      statusTypes: ["expired"]
+    },
+    {
+      key: "unknown",
+      title: "保存期不确定",
+      statusTypes: ["unknown"]
+    }
+  ]
+  var groups = []
+  var i
+  var j
+  var groupItems
+  var item
+
+  for (i = 0; i < groupConfigs.length; i += 1) {
+    groupItems = []
+
+    for (j = 0; j < myFoods.length; j += 1) {
+      item = myFoods[j]
+
+      if (groupConfigs[i].statusTypes.indexOf(item.statusType) !== -1) {
+        groupItems.push(item)
+      }
+    }
+
+    if (groupItems.length > 0) {
+      groups.push({
+        key: groupConfigs[i].key,
+        title: groupConfigs[i].title,
+        count: groupItems.length,
+        items: groupItems
+      })
+    }
+  }
+
+  return groups
+}
+
 function buildPantryOverview(myFoods) {
   var urgentCount = 0
   var i
@@ -86,6 +185,7 @@ function buildPantryOverview(myFoods) {
 Page({
   data: {
     myFoods: [],
+    foodGroups: [],
     hasMyFoods: false,
     overview: {
       totalText: "已记录 0 种食材",
@@ -104,6 +204,7 @@ Page({
 
     this.setData({
       myFoods: myFoods,
+      foodGroups: buildFoodGroups(myFoods),
       hasMyFoods: myFoods.length > 0,
       overview: overview
     })
@@ -153,6 +254,7 @@ Page({
 
         that.setData({
           myFoods: myFoods,
+          foodGroups: buildFoodGroups(myFoods),
           hasMyFoods: myFoods.length > 0,
           overview: buildPantryOverview(myFoods)
         })
