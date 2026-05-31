@@ -372,7 +372,7 @@ const foods = [
     image: "",
     summary: "柠檬冷藏更耐放，切开后要密封。",
     fridgeAdvice: "建议冷藏，可减少失水变干。",
-    storageMethod: "完整柠檬装袋冷藏，切开后包好切面。",
+    storageMethod: "完整柠檬装袋冷藏，切开后包好切面并冷藏。",
     roomTempShelfLife: "3-7天",
     coldShelfLife: "2-4周",
     shelfLife: {
@@ -1074,7 +1074,7 @@ const foods = [
     image: "",
     summary: "花菜适合冷藏，保持干爽更不易坏。",
     fridgeAdvice: "必须冷藏，常温容易变黄和变软。",
-    storageMethod: "整颗装袋冷藏，切开后尽快用完。",
+    storageMethod: "整颗装袋冷藏，切开后包好冷藏并尽快用完。",
     roomTempShelfLife: "当天尽快吃",
     coldShelfLife: "3-5天",
     shelfLife: {
@@ -1100,7 +1100,7 @@ const foods = [
     image: "",
     summary: "白菜适合冷藏或阴凉短放，切开后要包好。",
     fridgeAdvice: "建议冷藏，能减少失水和黄叶。",
-    storageMethod: "整颗冷藏或阴凉短放，切面包好。",
+    storageMethod: "整颗冷藏或阴凉短放，切开后包好切面冷藏。",
     roomTempShelfLife: "2-3天",
     coldShelfLife: "5-7天",
     shelfLife: {
@@ -1750,7 +1750,7 @@ const foods = [
     image: "",
     summary: "蟹味菇适合冷藏，开封后要尽快吃。",
     fridgeAdvice: "必须冷藏，常温容易变质。",
-    storageMethod: "原包装或装盒冷藏。",
+    storageMethod: "原包装冷藏，开封后扎紧或装盒冷藏。",
     roomTempShelfLife: "当天尽快用",
     coldShelfLife: "2-4天",
     shelfLife: {
@@ -1802,7 +1802,7 @@ const foods = [
     image: "",
     summary: "鲜木耳要冷藏，泡发木耳要尽快吃完。",
     fridgeAdvice: "鲜木耳必须冷藏，干木耳可阴凉干放。",
-    storageMethod: "鲜木耳装袋冷藏，干木耳密封干燥保存。",
+    storageMethod: "鲜木耳装袋冷藏，干木耳密封干燥；泡发后密封冷藏并尽快吃完。",
     roomTempShelfLife: "鲜木耳当天尽快用",
     coldShelfLife: "鲜木耳1-2天",
     shelfLife: {

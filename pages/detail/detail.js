@@ -33,18 +33,23 @@ function createInfoSection(title, items, tips) {
 
   return {
     title: title,
-    isCore: false,
     items: visibleItems,
     tips: visibleTips,
     hasContent: visibleItems.length > 0 || visibleTips.length > 0
   }
 }
 
-function createCoreSection(food) {
-  var fridgeAdviceItem = createInfoItem("放不放冰箱", food.fridgeAdvice)
+function createStorageGuideSection(food) {
   var shelfLifeItems = []
   var roomTempItem = createInfoItem("常温", food.roomTempShelfLife)
   var coldItem = createInfoItem("冷藏", food.coldShelfLife)
+  var items = [
+    createInfoItem("怎么保存", food.storageMethod),
+    createInfoItem("密封", food.sealedAdvice),
+    createInfoItem("怕水", food.waterAdvice)
+  ]
+  var visibleItems = []
+  var i
 
   if (roomTempItem.visible) {
     shelfLifeItems.push(roomTempItem)
@@ -54,14 +59,18 @@ function createCoreSection(food) {
     shelfLifeItems.push(coldItem)
   }
 
+  for (i = 0; i < items.length; i += 1) {
+    if (items[i].visible) {
+      visibleItems.push(items[i])
+    }
+  }
+
   return {
-    title: "怎么放",
-    isCore: true,
-    fridgeAdviceItem: fridgeAdviceItem.visible ? fridgeAdviceItem : null,
+    title: "保存指南",
     shelfLifeItems: shelfLifeItems,
-    items: [],
+    items: visibleItems,
     tips: [],
-    hasContent: fridgeAdviceItem.visible || shelfLifeItems.length > 0
+    hasContent: shelfLifeItems.length > 0 || visibleItems.length > 0
   }
 }
 
@@ -81,12 +90,7 @@ function getVisibleTips(tips) {
 
 function buildInfoSections(food, visibleTips) {
   return [
-    createCoreSection(food),
-    createInfoSection("保存方法", [
-      createInfoItem("怎么保存", food.storageMethod),
-      createInfoItem("密封", food.sealedAdvice),
-      createInfoItem("怕水", food.waterAdvice)
-    ]),
+    createStorageGuideSection(food),
     createInfoSection("注意事项", [
       createInfoItem("乙烯", food.ethyleneAdvice),
       createInfoItem("买回后", food.afterPurchaseAdvice)

@@ -18,19 +18,13 @@
     <block wx:for="{{infoSections}}" wx:for-item="section" wx:key="title">
       <view wx:if="{{section.hasContent}}" class="info-card card">
         <view class="card-title">{{section.title}}</view>
-        <block wx:if="{{section.isCore}}">
-          <view wx:if="{{section.fridgeAdviceItem}}" class="fridge-advice">
-            <view class="info-label">{{section.fridgeAdviceItem.label}}</view>
-            <view class="fridge-advice-value">{{section.fridgeAdviceItem.value}}</view>
+        <view wx:if="{{section.shelfLifeItems.length}}" class="shelf-life-grid">
+          <view wx:for="{{section.shelfLifeItems}}" wx:for-item="item" wx:key="label" class="shelf-life-item">
+            <view class="info-label">{{item.label}}</view>
+            <view class="shelf-life-value">{{item.value}}</view>
           </view>
-          <view wx:if="{{section.shelfLifeItems.length}}" class="shelf-life-grid">
-            <view wx:for="{{section.shelfLifeItems}}" wx:for-item="item" wx:key="label" class="shelf-life-item">
-              <view class="info-label">{{item.label}}</view>
-              <view class="shelf-life-value">{{item.value}}</view>
-            </view>
-          </view>
-        </block>
-        <view wx:if="{{!section.isCore && section.items.length}}" class="info-grid">
+        </view>
+        <view wx:if="{{section.items.length}}" class="info-grid">
           <view wx:for="{{section.items}}" wx:for-item="item" wx:key="label" class="info-item">
             <view class="info-label">{{item.label}}</view>
             <view class="info-value">{{item.value}}</view>
