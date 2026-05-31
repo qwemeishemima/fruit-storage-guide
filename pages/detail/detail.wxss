@@ -1,6 +1,6 @@
 .detail-page {
   padding-top: 32rpx;
-  padding-bottom: 196rpx;
+  padding-bottom: calc(168rpx + env(safe-area-inset-bottom));
 }
 
 .empty-card {
@@ -9,7 +9,13 @@
 }
 
 .detail-hero {
-  padding: 36rpx 34rpx;
+  padding: 38rpx 34rpx 34rpx;
+}
+
+.hero-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .hero-meta {
@@ -18,18 +24,23 @@
 }
 
 .food-title {
-  margin-top: 8rpx;
+  margin-top: 10rpx;
   color: #243126;
-  font-size: 46rpx;
+  font-size: 52rpx;
   font-weight: 800;
+  line-height: 1.18;
 }
 
 .hero-summary {
-  margin-top: 18rpx;
+  margin-top: 22rpx;
+  padding: 18rpx 22rpx;
+  border-left: 6rpx solid #72a66f;
+  border-radius: 14rpx;
+  background: #f3f9ef;
   color: #315d3c;
   font-size: 30rpx;
   font-weight: 600;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .tag-row {
@@ -48,41 +59,99 @@
 }
 
 .info-card {
-  margin-top: 24rpx;
-  padding: 30rpx 32rpx;
+  margin-top: 20rpx;
+  padding: 26rpx 28rpx 24rpx;
 }
 
 .card-title {
-  margin-bottom: 20rpx;
+  margin-bottom: 16rpx;
   color: #243126;
-  font-size: 32rpx;
+  font-size: 31rpx;
   font-weight: 700;
 }
 
-.info-item {
-  padding: 22rpx 0;
-  border-top: 1rpx solid #edf1e8;
+.fridge-advice {
+  padding: 18rpx 20rpx;
+  border: 1rpx solid #d9ebd4;
+  border-radius: 18rpx;
+  background: #fbfef8;
 }
 
-.info-item:first-of-type {
-  border-top: none;
+.fridge-advice-value {
+  margin-top: 8rpx;
+  color: #243126;
+  font-size: 29rpx;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.shelf-life-grid {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 16rpx;
+  flex-wrap: wrap;
+}
+
+.shelf-life-item {
+  flex: 0 0 calc((100% - 16rpx) / 2);
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 18rpx 20rpx;
+  border-radius: 18rpx;
+  background: #f8fbf4;
+}
+
+.shelf-life-value {
+  margin-top: 8rpx;
+  color: #243126;
+  font-size: 31rpx;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.info-item {
+  padding: 17rpx 20rpx;
+  border-radius: 18rpx;
+  background: #f8fbf4;
 }
 
 .info-label {
   color: #7f8a7b;
-  font-size: 24rpx;
+  font-size: 23rpx;
+  line-height: 1.3;
 }
 
 .info-value {
   margin-top: 8rpx;
   color: #243126;
-  font-size: 28rpx;
+  font-size: 29rpx;
   line-height: 1.6;
+}
+
+.tips-group {
+  margin-top: 18rpx;
+}
+
+.info-grid + .tips-group {
+  margin-top: 22rpx;
+}
+
+.tips-title {
+  margin-bottom: 6rpx;
+  color: #7f8a7b;
+  font-size: 23rpx;
+  line-height: 1.3;
 }
 
 .tip-item {
   position: relative;
-  padding: 14rpx 0 14rpx 28rpx;
+  padding: 10rpx 0 10rpx 30rpx;
   color: #243126;
   font-size: 28rpx;
   line-height: 1.6;
@@ -99,61 +168,55 @@
   content: "";
 }
 
-.floating-add-action {
+.bottom-action-bar {
   position: fixed;
-  right: 32rpx;
-  bottom: calc(48rpx + env(safe-area-inset-bottom));
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 99;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-sizing: border-box;
+  padding: 18rpx 28rpx calc(18rpx + env(safe-area-inset-bottom));
+  background: rgba(247, 251, 244, 0.96);
+  box-shadow: 0 -8rpx 28rpx rgba(63, 143, 90, 0.08);
 }
 
-.floating-add-btn {
+.bottom-add-action {
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 132rpx;
-  height: 132rpx;
-  border-radius: 50%;
+  width: 100%;
+  height: 88rpx;
+  border-radius: 999rpx;
   background: #3f8f5a;
-  box-shadow: 0 10rpx 26rpx rgba(0, 0, 0, 0.16);
+  box-shadow: 0 10rpx 24rpx rgba(63, 143, 90, 0.2);
 }
 
-.floating-add-action.added .floating-add-btn,
-.floating-add-action.added .floating-add-label {
+.bottom-add-action.added {
   background: #eaf5e9;
 }
 
-.floating-add-action:active {
+.bottom-add-action:active {
   opacity: 0.82;
 }
 
-.floating-add-icon {
+.bottom-add-icon {
   color: #ffffff;
-  font-size: 56rpx;
+  font-size: 36rpx;
   font-weight: 600;
   line-height: 1;
 }
 
-.floating-add-label {
-  box-sizing: border-box;
-  margin-top: 10rpx;
-  max-width: 140rpx;
-  padding: 8rpx 14rpx;
-  border-radius: 999rpx;
-  background: #3f8f5a;
-  box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.12);
+.bottom-add-label {
+  margin-left: 10rpx;
   color: #ffffff;
-  font-size: 21rpx;
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: 30rpx;
+  font-weight: 700;
+  line-height: 1;
   text-align: center;
-  white-space: nowrap;
 }
 
-.floating-add-action.added .floating-add-icon,
-.floating-add-action.added .floating-add-label {
+.bottom-add-action.added .bottom-add-icon,
+.bottom-add-action.added .bottom-add-label {
   color: #315d3c;
 }

@@ -10,12 +10,36 @@ function buildPantryItem(record) {
     foodId: record.foodId,
     name: record.name,
     addedAt: record.addedAt,
-    summary: food ? food.summary : "暂无保存结论",
     statusText: status.text,
     statusType: status.type,
     statusPriority: pantryUtils.getStatusPriority(status),
-    remainingDays: status.remainingDays
+    remainingDays: status.remainingDays,
+    statusTip: getStatusTip(status)
   }
+}
+
+function getStatusTip(status) {
+  if (!status) {
+    return "先留意外观和气味，再决定是否食用"
+  }
+
+  if (status.type === "expired") {
+    return "可能已经过期，请检查气味和状态"
+  }
+
+  if (status.type === "soon" && status.remainingDays === 0) {
+    return "建议今天吃掉"
+  }
+
+  if (status.type === "soon") {
+    return "建议今天或明天吃掉"
+  }
+
+  if (status.type === "fresh") {
+    return "还可以继续保存"
+  }
+
+  return "先留意外观和气味，再决定是否食用"
 }
 
 function comparePantryItems(a, b) {
@@ -42,10 +66,32 @@ function buildPantryItems(records) {
   return list
 }
 
+function buildPantryOverview(myFoods) {
+  var urgentCount = 0
+  var i
+
+  for (i = 0; i < myFoods.length; i += 1) {
+    if (myFoods[i].statusType === "soon" || myFoods[i].statusType === "expired") {
+      urgentCount += 1
+    }
+  }
+
+  return {
+    totalText: "已记录 " + myFoods.length + " 种食材",
+    urgentText: urgentCount + " 种建议尽快吃",
+    urgentCount: urgentCount
+  }
+}
+
 Page({
   data: {
     myFoods: [],
-    hasMyFoods: false
+    hasMyFoods: false,
+    overview: {
+      totalText: "已记录 0 种食材",
+      urgentText: "0 种建议尽快吃",
+      urgentCount: 0
+    }
   },
 
   onShow: function () {
@@ -54,10 +100,12 @@ Page({
 
   loadMyFoods: function () {
     var myFoods = buildPantryItems(pantryUtils.getMyFoods())
+    var overview = buildPantryOverview(myFoods)
 
     this.setData({
       myFoods: myFoods,
-      hasMyFoods: myFoods.length > 0
+      hasMyFoods: myFoods.length > 0,
+      overview: overview
     })
   },
 
@@ -74,8 +122,8 @@ Page({
   },
 
   goToAddFood: function () {
-    wx.navigateTo({
-      url: "/pages/category/category"
+    wx.switchTab({
+      url: "/pages/home/home"
     })
   },
 
@@ -105,7 +153,8 @@ Page({
 
         that.setData({
           myFoods: myFoods,
-          hasMyFoods: nextRecords.length > 0
+          hasMyFoods: myFoods.length > 0,
+          overview: buildPantryOverview(myFoods)
         })
 
         wx.showToast({

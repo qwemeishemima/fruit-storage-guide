@@ -5,7 +5,9 @@
 
   <block wx:else>
     <view class="detail-hero card">
-      <view class="hero-meta">{{categoryName}}</view>
+      <view class="hero-topline">
+        <view class="hero-meta">{{categoryName}}</view>
+      </view>
       <view class="food-title">{{food.name}}</view>
       <view class="hero-summary">{{food.summary}}</view>
       <view class="tag-row">
@@ -13,24 +15,39 @@
       </view>
     </view>
 
-    <view class="info-card card">
-      <view class="card-title">保存信息</view>
-      <view wx:for="{{infoItems}}" wx:key="label" class="info-item">
-        <view class="info-label">{{item.label}}</view>
-        <view class="info-value">{{item.value}}</view>
+    <block wx:for="{{infoSections}}" wx:for-item="section" wx:key="title">
+      <view wx:if="{{section.hasContent}}" class="info-card card">
+        <view class="card-title">{{section.title}}</view>
+        <block wx:if="{{section.isCore}}">
+          <view wx:if="{{section.fridgeAdviceItem}}" class="fridge-advice">
+            <view class="info-label">{{section.fridgeAdviceItem.label}}</view>
+            <view class="fridge-advice-value">{{section.fridgeAdviceItem.value}}</view>
+          </view>
+          <view wx:if="{{section.shelfLifeItems.length}}" class="shelf-life-grid">
+            <view wx:for="{{section.shelfLifeItems}}" wx:for-item="item" wx:key="label" class="shelf-life-item">
+              <view class="info-label">{{item.label}}</view>
+              <view class="shelf-life-value">{{item.value}}</view>
+            </view>
+          </view>
+        </block>
+        <view wx:if="{{!section.isCore && section.items.length}}" class="info-grid">
+          <view wx:for="{{section.items}}" wx:for-item="item" wx:key="label" class="info-item">
+            <view class="info-label">{{item.label}}</view>
+            <view class="info-value">{{item.value}}</view>
+          </view>
+        </view>
+        <view wx:if="{{section.tips.length}}" class="tips-group">
+          <view class="tips-title">小贴士</view>
+          <view wx:for="{{section.tips}}" wx:key="*this" class="tip-item">{{item}}</view>
+        </view>
       </view>
-    </view>
-
-    <view class="info-card card">
-      <view class="card-title">保存小贴士</view>
-      <view wx:for="{{food.tips}}" wx:key="*this" class="tip-item">{{item}}</view>
-    </view>
+    </block>
   </block>
 
-  <view wx:if="{{food}}" class="floating-add-action {{isInPantry ? 'added' : ''}}" bindtap="handlePantryAction">
-    <view class="floating-add-btn">
-      <text class="floating-add-icon">{{isInPantry ? '✓' : '+'}}</text>
+  <view wx:if="{{food}}" class="bottom-action-bar">
+    <view class="bottom-add-action {{isInPantry ? 'added' : ''}}" bindtap="handlePantryAction">
+      <text class="bottom-add-icon">{{isInPantry ? '✓' : '+'}}</text>
+      <text class="bottom-add-label">{{isInPantry ? '查看我的食材' : '加入我的食材'}}</text>
     </view>
-    <text class="floating-add-label">{{isInPantry ? '查看我的食材' : '加入我的食材'}}</text>
   </view>
 </view>
